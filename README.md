@@ -4,6 +4,9 @@
 # stringstatic <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
+
+[![License:
+CC0](https://img.shields.io/badge/license-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 <!-- badges: end -->
 
 `stringstatic` provides a reimplementation of several functions from
