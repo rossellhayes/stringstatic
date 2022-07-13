@@ -1,0 +1,18 @@
+Package: stringstatic
+Title: Dependency-Free String Operations
+Version: 0.0.0.9000
+Authors@R: 
+    person("Alexander", "Rossell Hayes", , "alexander@rossellhayes.com", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0001-9412-0457"))
+Description: Provides a reimplementation of several functions from the
+    'stringr' package, with the same user interface. These functions have
+    no external dependencies and can be copied directly into your package
+    code using the 'staticimports' package.
+License: CC0
+Suggests: 
+    staticimports (>= 0.0.0.9000)
+Remotes: 
+    wch/staticimports
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
