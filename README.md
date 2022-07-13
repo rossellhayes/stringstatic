@@ -77,6 +77,13 @@ in your project.
 -   If `stringstatic` functions are copied directly into your package,
     you will not automatically benefit from improvements or bug fixes.
 
+## Code of Conduct
+
+Please note that the `stringstatic` project is released with a
+[Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
 ------------------------------------------------------------------------
 
 <a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">Guitar

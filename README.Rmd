@@ -73,5 +73,9 @@ If you expect to work with non-ASCII text, `stringr` may provide better results.
 	- While `stringi` is a heavy dependency, users are likely to already have it installed because it is included when installing the `tidyverse`.
 - If `stringstatic` functions are copied directly into your package, you will not automatically benefit from improvements or bug fixes.
 
+## Code of Conduct
+
+Please note that the `stringstatic` project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
 ---
 <a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">Guitar icons created by Freepik - Flaticon</a>
