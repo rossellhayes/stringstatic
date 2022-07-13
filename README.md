@@ -86,5 +86,9 @@ By contributing to this project, you agree to abide by its terms.
 
 ------------------------------------------------------------------------
 
-<a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">Guitar
-icons created by Freepik - Flaticon</a>
+Hex sticker image adapted from
+<a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">guitar
+icons created by Freepik - Flaticon</a>.
+
+Hex sticker font is [Source Sans by
+Adobe](https://github.com/adobe-fonts/source-sans).
