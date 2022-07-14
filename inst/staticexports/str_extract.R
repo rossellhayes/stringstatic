@@ -1,5 +1,5 @@
 str_extract <- function(string, pattern) {
-	fixed <- inherits(pattern, "fixed")
+	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
 
 	regmatches(
@@ -8,14 +8,14 @@ str_extract <- function(string, pattern) {
 			pattern = pattern,
 			text = string,
 			ignore.case = ignore.case,
-			perl = !fixed,
-			fixed = fixed
+			perl = !is_fixed,
+			fixed = is_fixed
 		)
 	)
 }
 
 str_extract_all <- function(string, pattern) {
-	fixed <- inherits(pattern, "fixed")
+	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
 
 	regmatches(
@@ -24,8 +24,8 @@ str_extract_all <- function(string, pattern) {
 			pattern = pattern,
 			text = string,
 			ignore.case = ignore.case,
-			perl = !fixed,
-			fixed = fixed
+			perl = !is_fixed,
+			fixed = is_fixed
 		)
 	)
 }

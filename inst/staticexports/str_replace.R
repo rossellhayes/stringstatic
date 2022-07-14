@@ -1,5 +1,5 @@
 str_replace <- function(string, pattern, replacement) {
-	fixed <- inherits(pattern, "fixed")
+	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
 
 	sub(
@@ -7,13 +7,13 @@ str_replace <- function(string, pattern, replacement) {
 		replacement,
 		x = string,
 		ignore.case = ignore.case,
-		perl = !fixed,
-		fixed = fixed
+		perl = !is_fixed,
+		fixed = is_fixed
 	)
 }
 
 str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
-	fixed <- inherits(pattern, "fixed")
+	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
 
 	if (!is.null(names(pattern))) {
@@ -23,8 +23,8 @@ str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
 				replacement = pattern[[i]],
 				x = string,
 				ignore.case = ignore.case,
-				perl = !fixed,
-				fixed = fixed
+				perl = !is_fixed,
+				fixed = is_fixed
 			)
 		}
 
@@ -36,7 +36,7 @@ str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
 		replacement,
 		x = string,
 		ignore.case = ignore.case,
-		perl = !fixed,
-		fixed = fixed
+		perl = !is_fixed,
+		fixed = is_fixed
 	)
 }
