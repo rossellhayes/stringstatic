@@ -16,8 +16,8 @@ knitr::opts_chunk$set(
 # stringstatic <img src="man/figures/logo.png?raw=TRUE" align="right" height="138" />
 
 <!-- badges: start -->
-`r badger::badge_license("CC0", "green", "https://creativecommons.org/publicdomain/zero/1.0/")`
 `r badger::badge_lifecycle("experimental")`
+`r badger::badge_license("CC0", "brightgreen", "https://creativecommons.org/publicdomain/zero/1.0/")`
 <!-- badges: end -->
 
 `stringstatic` provides a reimplementation of several functions from [`stringr`](https://stringr.tidyverse.org/).

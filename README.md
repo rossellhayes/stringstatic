@@ -7,7 +7,7 @@
 
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![License:
-CC0](https://img.shields.io/badge/license-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+CC0](https://img.shields.io/badge/license-CC0-brightgreen.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 <!-- badges: end -->
 
 `stringstatic` provides a reimplementation of several functions from
