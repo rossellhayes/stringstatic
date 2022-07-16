@@ -1,3 +1,7 @@
+# stringstatic 0.0.2
+
+* Added `str_match()`
+
 # stringstatic 0.0.1
 
 * Initial release with the following functions:
