@@ -1,5 +1,7 @@
 # stringstatic (development version)
 
+* Added `str_count()`
+
 # stringstatic 0.0.2
 
 * Added `str_match()`
