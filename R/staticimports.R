@@ -16,6 +16,35 @@ fixed <- function(pattern, ignore_case = FALSE) {
 	)
 }
 
+regex <- function(
+	pattern,
+	ignore_case = FALSE,
+	multiline = FALSE,
+	comments = FALSE,
+	dotall = FALSE
+	) {
+	options <- c(
+		if (isTRUE(multiline)) "m",
+		if (isTRUE(dotall)) "s",
+		if (isTRUE(comments)) "x"
+	)
+
+	if (length(options) > 0) {
+		pattern <- paste0("(?", paste(options, collapse = ""), ")", pattern)
+	}
+
+	structure(
+		pattern,
+		options = list(
+			case_insensitive = ignore_case,
+			multiline = multiline,
+			comments = comments,
+			dotall = dotall
+		),
+		class = c("regex", "pattern", "character")
+	)
+}
+
 str_count <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE

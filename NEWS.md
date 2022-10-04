@@ -1,6 +1,7 @@
 # stringstatic (development version)
 
 * Added `str_count()`
+* Added `regex()`
 
 # stringstatic 0.0.2
 
