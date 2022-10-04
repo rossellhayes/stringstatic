@@ -1,3 +1,5 @@
+# stringstatic (development version)
+
 # stringstatic 0.0.2
 
 * Added `str_match()`
