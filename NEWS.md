@@ -8,6 +8,11 @@
 ## New arguments
 * `str_extract_all()` gains the `simplify` argument.
 
+## Removals
+* All functions have been refactored to no longer rely on `%||%`.
+This helps improve the portability of `stringstatic` functions.
+As a result, `%||%` has been removed.
+
 # stringstatic 0.0.2
 
 * Added `str_match()`
