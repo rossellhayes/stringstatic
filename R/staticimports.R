@@ -47,7 +47,7 @@ regex <- function(
 
 str_count <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	lengths(
 		gregexpr(
@@ -62,7 +62,7 @@ str_count <- function(string, pattern) {
 
 str_detect <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	grepl(
 		pattern = pattern,
@@ -75,7 +75,7 @@ str_detect <- function(string, pattern) {
 
 str_extract <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	regmatches(
 		x = string,
@@ -91,7 +91,7 @@ str_extract <- function(string, pattern) {
 
 str_extract_all <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	regmatches(
 		x = string,
@@ -107,7 +107,7 @@ str_extract_all <- function(string, pattern) {
 
 str_match <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	matches <- regmatches(
 		x = string,
@@ -137,7 +137,7 @@ str_remove_all <- function(string, pattern) {
 
 str_replace <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	sub(
 		pattern,
@@ -151,7 +151,7 @@ str_replace <- function(string, pattern, replacement) {
 
 str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	if (!is.null(names(pattern))) {
 		for (i in seq_along(pattern)) {
@@ -184,7 +184,7 @@ str_subset <- function(string, pattern) {
 
 str_which <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	grep(
 		pattern,

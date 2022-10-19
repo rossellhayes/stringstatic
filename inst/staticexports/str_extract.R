@@ -1,6 +1,6 @@
 str_extract <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	regmatches(
 		x = string,
@@ -16,7 +16,7 @@ str_extract <- function(string, pattern) {
 
 str_extract_all <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	regmatches(
 		x = string,

@@ -1,6 +1,6 @@
 str_detect <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- attr(pattern, "options")$case_insensitive %||% FALSE
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
 	grepl(
 		pattern = pattern,
