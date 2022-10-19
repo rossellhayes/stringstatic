@@ -1,3 +1,22 @@
+#' Control regex matching behavior
+#'
+#' Dependency-free drop-in alternative for `stringr::regex()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to modify behavior.
+#' @param ignore_case Should case differences be ignored in the match?
+#' @param multiline
+#'   If `TRUE`, `$` and `^` match the beginning and end of each line.
+#'   If `FALSE`, the default, only match the start and end of the input.
+#' @param comments
+#'   If `TRUE`, white space and comments beginning with `#` are ignored.
+#'   Escape literal spaces with `\\`.
+#' @param dotall If `TRUE`, `.` will also match line terminators.
+#'
+#' @return An integer vector.
+#' @noRd
 regex <- function(
 	pattern,
 	ignore_case = FALSE,
@@ -27,6 +46,20 @@ regex <- function(
 	)
 }
 
+#' Compare literal bytes in the string
+#'
+#' Dependency-free drop-in alternative for `stringr::fixed()`.
+#' This is very fast,
+#' but not usually what you want for non-ASCII character sets.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to modify behavior.
+#' @param ignore_case Should case differences be ignored in the match?
+#'
+#' @return An integer vector.
+#' @noRd
 fixed <- function(pattern, ignore_case = FALSE) {
 	structure(
 		pattern,

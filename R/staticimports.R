@@ -3,6 +3,20 @@
 # Imported from inst/staticexports
 # ======================================================================
 
+#' Compare literal bytes in the string
+#'
+#' Dependency-free drop-in alternative for `stringr::fixed()`.
+#' This is very fast,
+#' but not usually what you want for non-ASCII character sets.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern	Pattern to modify behavior.
+#' @param ignore_case	Should case differences be ignored in the match?
+#'
+#' @return An integer vector.
+#' @noRd
 fixed <- function(pattern, ignore_case = FALSE) {
 	structure(
 		pattern,
@@ -11,6 +25,25 @@ fixed <- function(pattern, ignore_case = FALSE) {
 	)
 }
 
+#' Control regex matching behavior
+#'
+#' Dependency-free drop-in alternative for `stringr::regex()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern	Pattern to modify behavior.
+#' @param ignore_case	Should case differences be ignored in the match?
+#' @param multiline
+#'   If `TRUE`, `$` and `^` match the beginning and end of each line.
+#'   If `FALSE`, the default, only match the start and end of the input.
+#' @param comments
+#'   If `TRUE`, white space and comments beginning with `#` are ignored.
+#'   Escape literal spaces with `\\`.
+#' @param dotall If `TRUE`, `.` will also match line terminators.
+#'
+#' @return An integer vector.
+#' @noRd
 regex <- function(
 	pattern,
 	ignore_case = FALSE,
@@ -40,7 +73,25 @@ regex <- function(
 	)
 }
 
-str_count <- function(string, pattern) {
+#' Count the number of matches in a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_count()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @return An integer vector.
+#' @noRd
+str_count <- function(string, pattern = "") {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
@@ -55,6 +106,26 @@ str_count <- function(string, pattern) {
 	)
 }
 
+#' Detect the presence or absence of a pattern in a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_detect()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @param negate If `TRUE`, return non-matching elements.
+#'
+#' @return A logical vector.
+#' @noRd
 str_detect <- function(string, pattern, negate = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
@@ -71,6 +142,26 @@ str_detect <- function(string, pattern, negate = FALSE) {
 	seq_along(string) %in% indices
 }
 
+#' Extract matching patterns from a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_extract()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @return A character matrix.
+#'   The first column is the complete match,
+#'   followed by one column for each capture group.
+#' @noRd
 str_extract <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
@@ -87,6 +178,28 @@ str_extract <- function(string, pattern) {
 	)
 }
 
+#' Extract matching patterns from a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_extract_all()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @param simplify If `FALSE`, the default, returns a list of character vectors.
+#'   If `TRUE` returns a character matrix.
+#'
+#' @return A list of character vectors if `simplify = FALSE`,
+#'   or a character matrix if `simplify = TRUE`.
+#' @noRd
 str_extract_all <- function(string, pattern, simplify = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
@@ -117,6 +230,26 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
 	result
 }
 
+#' Extract matched groups from a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_match()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @return A character matrix.
+#'   The first column is the complete match,
+#'   followed by one column for each capture group.
+#' @noRd
 str_match <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
@@ -139,14 +272,80 @@ str_match <- function(string, pattern) {
 	)
 }
 
+#' Remove matched patterns in a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_remove()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @return A character vector.
+#' @noRd
 str_remove <- function(string, pattern) {
 	str_replace(string, pattern, replacement = "")
 }
 
+#' Remove matched patterns in a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_remove_all()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @return A character vector.
+#' @noRd
 str_remove_all <- function(string, pattern) {
 	str_replace_all(string, pattern, replacement = "")
 }
 
+#' Replace matched patterns in a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_replace()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @param replacement	A character vector of replacements.
+#'   Should be either length one, or the same length as `string` or `pattern`.
+#'   References of the form `\1`, `\2`, etc. will be replaced with the contents
+#'   of the respective matched group (created by `()`).
+#'
+#'   Alternatively, pass a function to `replacement`:
+#'   it will be called once for each match and its return value will be used to
+#'   replace the match.
+#'
+#'   To replace the complete string with `NA`,
+#'   use `replacement = NA_character_`.
+#'
+#' @return A character vector.
+#' @noRd
 str_replace <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
@@ -161,6 +360,38 @@ str_replace <- function(string, pattern, replacement) {
 	)
 }
 
+#' Replace matched patterns in a string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_replace_all()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @param replacement	A character vector of replacements.
+#'   Should be either length one, or the same length as `string` or `pattern`.
+#'   References of the form `\1`, `\2`, etc. will be replaced with the contents
+#'   of the respective matched group (created by `()`).
+#'
+#'   To perform multiple replacements in each element of `string`,
+#'   pass a named vector `(c(pattern1 = replacement1))` to `str_replace_all()`.
+#'   Alternatively, pass a function to `replacement`:
+#'   it will be called once for each match and its return value will be used to
+#'   replace the match.
+#'
+#'   To replace the complete string with `NA`,
+#'   use `replacement = NA_character_`.
+#'
+#' @return A character vector.
+#' @noRd
 str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
@@ -190,10 +421,50 @@ str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
 	)
 }
 
+#' Keep strings matching a pattern
+#'
+#' Dependency-free drop-in alternative for `stringr::str_subset()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @param negate If `TRUE`, return non-matching elements.
+#'
+#' @return A character vector.
+#' @noRd
 str_subset <- function(string, pattern, negate = FALSE) {
 	string[str_which(string, pattern, negate = negate)]
 }
 
+#' Find positions of strings matching a pattern
+#'
+#' Dependency-free drop-in alternative for `stringr::str_which()`.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @param negate If `TRUE`, return non-matching elements.
+#'
+#' @return An integer vector.
+#' @noRd
 str_which <- function(string, pattern, negate = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
