@@ -1,7 +1,12 @@
 # stringstatic (development version)
 
+## New functions
+
 * Added `str_count()`
 * Added `regex()`
+
+## New arguments
+* `str_extract_all()` gains the `simplify` argument.
 
 # stringstatic 0.0.2
 

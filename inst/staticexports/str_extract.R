@@ -14,11 +14,11 @@ str_extract <- function(string, pattern) {
 	)
 }
 
-str_extract_all <- function(string, pattern) {
+str_extract_all <- function(string, pattern, simplify = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
-	regmatches(
+	result <- regmatches(
 		x = string,
 		m = gregexpr(
 			pattern = pattern,
@@ -28,4 +28,18 @@ str_extract_all <- function(string, pattern) {
 			fixed = is_fixed
 		)
 	)
+
+	if (isTRUE(simplify)) {
+		max_length <- max(lengths(result))
+
+		result <- t(vapply(
+			result,
+			function(x) x[seq_len(max_length)],
+			character(max_length)
+		))
+
+		result[is.na(result)] <- ""
+	}
+
+	result
 }
