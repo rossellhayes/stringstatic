@@ -1,11 +1,3 @@
-fixed <- function(pattern, ignore_case = FALSE) {
-	structure(
-		pattern,
-		options = list(case_insensitive = ignore_case),
-		class = c("fixed", "pattern", "character")
-	)
-}
-
 regex <- function(
 	pattern,
 	ignore_case = FALSE,
@@ -32,5 +24,13 @@ regex <- function(
 			dotall = dotall
 		),
 		class = c("regex", "pattern", "character")
+	)
+}
+
+fixed <- function(pattern, ignore_case = FALSE) {
+	structure(
+		pattern,
+		options = list(case_insensitive = ignore_case),
+		class = c("fixed", "pattern", "character")
 	)
 }
