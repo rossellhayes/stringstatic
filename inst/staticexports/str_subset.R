@@ -1,3 +1,3 @@
-str_subset <- function(string, pattern) {
-	string[str_which(string, pattern)]
+str_subset <- function(string, pattern, negate = FALSE) {
+	string[str_which(string, pattern, negate = negate)]
 }

@@ -55,17 +55,20 @@ str_count <- function(string, pattern) {
 	)
 }
 
-str_detect <- function(string, pattern) {
+str_detect <- function(string, pattern, negate = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
-	grepl(
-		pattern = pattern,
+	indices <- grep(
+		pattern,
 		x = string,
 		ignore.case = ignore.case,
 		perl = !is_fixed,
-		fixed = is_fixed
+		fixed = is_fixed,
+		invert = negate
 	)
+
+	seq_along(string) %in% indices
 }
 
 str_extract <- function(string, pattern) {
@@ -187,11 +190,11 @@ str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
 	)
 }
 
-str_subset <- function(string, pattern) {
-	string[str_which(string, pattern)]
+str_subset <- function(string, pattern, negate = FALSE) {
+	string[str_which(string, pattern, negate = negate)]
 }
 
-str_which <- function(string, pattern) {
+str_which <- function(string, pattern, negate = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
@@ -200,6 +203,7 @@ str_which <- function(string, pattern) {
 		x = string,
 		ignore.case = ignore.case,
 		perl = !is_fixed,
-		fixed = is_fixed
+		fixed = is_fixed,
+		invert = negate
 	)
 }

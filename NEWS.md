@@ -1,11 +1,11 @@
 # stringstatic (development version)
 
 ## New functions
-
 * Added `str_count()`
 * Added `regex()`
 
 ## New arguments
+* `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
 * `str_extract_all()` gains the `simplify` argument.
 
 ## Removals

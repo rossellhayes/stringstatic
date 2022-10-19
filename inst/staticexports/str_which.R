@@ -1,4 +1,4 @@
-str_which <- function(string, pattern) {
+str_which <- function(string, pattern, negate = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
@@ -7,6 +7,7 @@ str_which <- function(string, pattern) {
 		x = string,
 		ignore.case = ignore.case,
 		perl = !is_fixed,
-		fixed = is_fixed
+		fixed = is_fixed,
+		invert = negate
 	)
 }
