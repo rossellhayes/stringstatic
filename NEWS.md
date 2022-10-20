@@ -13,8 +13,9 @@
 * `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
 * `str_extract_all()` gains the `simplify` argument.
 
-## Removals
+## Refactoring
 * All functions have been refactored to no longer rely on `%||%`. This helps improve the portability of `stringstatic` functions. As a result, `%||%` has been removed.
+* `str_remove()` and `str_remove_all()` have been refactored to no longer rely on `str_replace()` and `str_replace_all()`. This improves their portability.
 
 # stringstatic 0.0.2
 

@@ -17,7 +17,17 @@
 #' @return A character vector.
 #' @noRd
 str_remove <- function(string, pattern) {
-	str_replace(string, pattern, replacement = "")
+	is_fixed <- inherits(pattern, "fixed")
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+
+	sub(
+		pattern,
+		replacement = "",
+		x = string,
+		ignore.case = ignore.case,
+		perl = !is_fixed,
+		fixed = is_fixed
+	)
 }
 
 #' Remove matched patterns in a string
@@ -39,5 +49,15 @@ str_remove <- function(string, pattern) {
 #' @return A character vector.
 #' @noRd
 str_remove_all <- function(string, pattern) {
-	str_replace_all(string, pattern, replacement = "")
+	is_fixed <- inherits(pattern, "fixed")
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+
+	gsub(
+		pattern,
+		replacement = "",
+		x = string,
+		ignore.case = ignore.case,
+		perl = !is_fixed,
+		fixed = is_fixed
+	)
 }
