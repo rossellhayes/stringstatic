@@ -1,17 +1,20 @@
 # stringstatic (development version)
 
+## Major changes
+* All `stringstatic` functions now have documentation.
+* All `stringstatic` functions are now exported. They can be run interactively by loading the `stringstatic` package. Using `staticimports` remains the recommended way to use `stringstatic` functions in your own package.
+* `staticimports` is now available under the MIT-0 License. This allows you to use code from `stringstatic` in your own package however you'd like, with no limitations.
+
 ## New functions
-* Added `str_count()`
-* Added `regex()`
+* Added `str_count()`.
+* Added `regex()`.
 
 ## New arguments
 * `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
 * `str_extract_all()` gains the `simplify` argument.
 
 ## Removals
-* All functions have been refactored to no longer rely on `%||%`.
-This helps improve the portability of `stringstatic` functions.
-As a result, `%||%` has been removed.
+* All functions have been refactored to no longer rely on `%||%`. This helps improve the portability of `stringstatic` functions. As a result, `%||%` has been removed.
 
 # stringstatic 0.0.2
 
