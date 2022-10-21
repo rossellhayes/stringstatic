@@ -8,6 +8,7 @@
 ## New functions
 * Added `regex()`.
 * Added `str_count()`.
+* Added `str_dup()`.
 * Added `str_replace_na()`.
 
 ## New arguments
