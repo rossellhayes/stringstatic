@@ -104,3 +104,17 @@ str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
 		fixed = is_fixed
 	)
 }
+
+#' Turn NA into "NA"
+#'
+#' Dependency-free drop-in alternative for `stringr::str_replace_na()`.
+#'
+#' @param string Input vector. Either a character vector, or something coercible to one.
+#' @param replacement A single string.
+#'
+#' @return A character vector.
+#' @export
+str_replace_na <- function(string, replacement = "NA") {
+	string[is.na(string)] <- replacement
+	string
+}

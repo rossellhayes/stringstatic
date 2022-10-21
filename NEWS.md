@@ -6,8 +6,9 @@
 * `staticimports` is now available under the MIT-0 License. This allows you to use code from `stringstatic` in your own package however you'd like, with no limitations.
 
 ## New functions
-* Added `str_count()`.
 * Added `regex()`.
+* Added `str_count()`.
+* Added `str_replace_na()`.
 
 ## New arguments
 * `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
