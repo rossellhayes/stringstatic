@@ -24,12 +24,10 @@ Should be either length one, or the same length as \code{string} or \code{patter
 References of the form \verb{\\1}, \verb{\\2}, etc. will be replaced with the contents
 of the respective matched group (created by \verb{()}).
 
-Alternatively, pass a function to \code{replacement}:
-it will be called once for each match and its return value will be used to
-replace the match.
-
 To replace the complete string with \code{NA},
-use \code{replacement = NA_character_}.}
+use \code{replacement = NA_character_}.
+
+Using a function for \code{replacement} is not yet supported.}
 }
 \value{
 A character vector.

@@ -21,12 +21,10 @@
 #'   References of the form `\1`, `\2`, etc. will be replaced with the contents
 #'   of the respective matched group (created by `()`).
 #'
-#'   Alternatively, pass a function to `replacement`:
-#'   it will be called once for each match and its return value will be used to
-#'   replace the match.
-#'
 #'   To replace the complete string with `NA`,
 #'   use `replacement = NA_character_`.
+#'
+#'   Using a function for `replacement` is not yet supported.
 #'
 #' @return A character vector.
 #' @export
@@ -67,12 +65,11 @@ str_replace <- function(string, pattern, replacement) {
 #'
 #'   To perform multiple replacements in each element of `string`,
 #'   pass a named vector `(c(pattern1 = replacement1))` to `str_replace_all()`.
-#'   Alternatively, pass a function to `replacement`:
-#'   it will be called once for each match and its return value will be used to
-#'   replace the match.
 #'
 #'   To replace the complete string with `NA`,
 #'   use `replacement = NA_character_`.
+#'
+#'   Using a function for `replacement` is not yet supported.
 #'
 #' @return A character vector.
 #' @export
