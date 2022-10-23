@@ -24,9 +24,6 @@ If \code{FALSE}, the default, only match the start and end of the input.}
 Escape literal spaces with \verb{\\\\}.}
 
 \item{dotall}{If \code{TRUE}, \code{.} will also match line terminators.}
-
-\item{string}{Input vector.
-Either a character vector, or something coercible to one.}
 }
 \value{
 An integer vector.

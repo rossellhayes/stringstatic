@@ -2,9 +2,6 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::regex()`.
 #'
-#' @param string Input vector.
-#'   Either a character vector, or something coercible to one.
-#'
 #' @param pattern Pattern to modify behavior.
 #' @param ignore_case Should case differences be ignored in the match?
 #' @param multiline
@@ -51,9 +48,6 @@ regex <- function(
 #' Dependency-free drop-in alternative for `stringr::fixed()`.
 #' This is very fast,
 #' but not usually what you want for non-ASCII character sets.
-#'
-#' @param string Input vector.
-#'   Either a character vector, or something coercible to one.
 #'
 #' @param pattern Pattern to modify behavior.
 #' @param ignore_case Should case differences be ignored in the match?

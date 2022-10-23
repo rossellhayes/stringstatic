@@ -10,9 +10,6 @@ fixed(pattern, ignore_case = FALSE)
 \item{pattern}{Pattern to modify behavior.}
 
 \item{ignore_case}{Should case differences be ignored in the match?}
-
-\item{string}{Input vector.
-Either a character vector, or something coercible to one.}
 }
 \value{
 An integer vector.
