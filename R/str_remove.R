@@ -1,3 +1,6 @@
+# `R/str_remove.R` is imported from `inst/staticexports/str_remove.R`. 
+# Please edit that file instead.
+
 #' Remove matched patterns in a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_remove()`.

@@ -1,3 +1,6 @@
+# `R/str_match.R` is imported from `inst/staticexports/str_match.R`. 
+# Please edit that file instead.
+
 #' Extract matched groups from a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_match()`.

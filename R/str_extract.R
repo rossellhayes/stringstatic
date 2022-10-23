@@ -1,3 +1,6 @@
+# `R/str_extract.R` is imported from `inst/staticexports/str_extract.R`. 
+# Please edit that file instead.
+
 #' Extract matching patterns from a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_extract()`.

@@ -1,3 +1,6 @@
+# `R/str_replace.R` is imported from `inst/staticexports/str_replace.R`. 
+# Please edit that file instead.
+
 # TODO: Add support for function `replacement`
 
 #' Replace matched patterns in a string

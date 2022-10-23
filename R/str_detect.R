@@ -1,3 +1,6 @@
+# `R/str_detect.R` is imported from `inst/staticexports/str_detect.R`. 
+# Please edit that file instead.
+
 #' Detect the presence or absence of a pattern in a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_detect()`.

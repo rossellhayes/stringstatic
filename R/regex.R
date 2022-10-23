@@ -1,3 +1,6 @@
+# `R/regex.R` is imported from `inst/staticexports/regex.R`. 
+# Please edit that file instead.
+
 #' Control regex matching behavior
 #'
 #' Dependency-free drop-in alternative for `stringr::regex()`.

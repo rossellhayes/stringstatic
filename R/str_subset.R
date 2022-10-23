@@ -1,3 +1,6 @@
+# `R/str_subset.R` is imported from `inst/staticexports/str_subset.R`. 
+# Please edit that file instead.
+
 #' Keep strings matching a pattern
 #'
 #' Dependency-free drop-in alternative for `stringr::str_subset()`.
