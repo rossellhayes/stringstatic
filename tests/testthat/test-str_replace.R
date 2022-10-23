@@ -3,6 +3,13 @@ test_that("basic replacement works", {
 	expect_equal(str_replace("abababa", "ba", "BA"), "aBAbaba")
 })
 
+test_that("vectorized replacement works", {
+	expect_equal(
+		str_replace(c("ab!", "ab!"), c("a", "b"), c("c", "d")),
+		c("cb!", "ad!")
+	)
+})
+
 test_that("can replace multiple matches", {
 	x <- c("a1", "b2")
 	y <- str_replace_all(x, c("a" = "1", "b" = "2"))

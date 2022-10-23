@@ -32,6 +32,8 @@ str_replace <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
+	sub <- Vectorize(sub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)
+
 	sub(
 		pattern,
 		replacement,
@@ -91,6 +93,8 @@ str_replace_all <- function(string, pattern, replacement) {
 
 		return(string)
 	}
+
+	gsub <- Vectorize(gsub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)
 
 	gsub(
 		pattern,
