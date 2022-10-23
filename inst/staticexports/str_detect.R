@@ -22,6 +22,8 @@ str_detect <- function(string, pattern, negate = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
+	grep <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)
+
 	indices <- grep(
 		pattern,
 		x = string,
@@ -31,5 +33,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
 		invert = negate
 	)
 
-	seq_along(string) %in% indices
+	result <- as.logical(lengths(indices))
+	result[is.na(string)] <- NA
+	result
 }

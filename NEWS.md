@@ -1,9 +1,5 @@
 # stringstatic (development version)
 
-## Major changes
-* All `stringstatic` functions now have documentation.
-* All `stringstatic` functions are now exported. They can be run interactively by loading the `stringstatic` package. Using `staticimports` remains the recommended way to use `stringstatic` functions in your own package.
-
 ## New functions
 * Added `regex()`.
 * Added `str_count()`.
@@ -14,9 +10,13 @@
 * `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
 * `str_extract_all()` gains the `simplify` argument.
 
-## Refactoring
+## Improvements
+* All `stringstatic` functions now have documentation.
+* Some functions are now vectorized like their `stringr` equivalents:
+  * `str_detect()`, `str_starts()`, `str_ends()`, `str_replace()` and `str_replace_all()`.
 * All functions have been refactored to no longer rely on `%||%`. This helps improve the portability of `stringstatic` functions. As a result, `%||%` has been removed.
 * `str_remove()` and `str_remove_all()` have been refactored to no longer rely on `str_replace()` and `str_replace_all()`. This improves their portability.
+* All `stringstatic` functions are now exported. They can be run interactively by loading the `stringstatic` package. Using `staticimports` remains the recommended way to use `stringstatic` functions in your own package.
 
 # stringstatic 0.0.2
 
