@@ -3,7 +3,6 @@
 ## Major changes
 * All `stringstatic` functions now have documentation.
 * All `stringstatic` functions are now exported. They can be run interactively by loading the `stringstatic` package. Using `staticimports` remains the recommended way to use `stringstatic` functions in your own package.
-* `staticimports` is now available under the MIT-0 License. This allows you to use code from `stringstatic` in your own package however you'd like, with no limitations.
 
 ## New functions
 * Added `regex()`.
