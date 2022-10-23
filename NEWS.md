@@ -15,7 +15,7 @@
 ## Improvements
 * All `stringstatic` functions now have documentation.
 * Some functions are now vectorized like their `stringr` equivalents:
-  * `str_detect()`, `str_starts()`, `str_ends()`, `str_replace()` and `str_replace_all()`.
+  * `str_detect()`, `str_dup()`, `str_ends()`, `str_extract()`, `str_extract_all()`, `str_replace()`, `str_replace_all()`, and `str_starts()`.
 * All functions have been refactored to no longer rely on `%||%`. This helps improve the portability of `stringstatic` functions. As a result, `%||%` has been removed.
 * `str_remove()` and `str_remove_all()` have been refactored to no longer rely on `str_replace()` and `str_replace_all()`. This improves their portability.
 * All `stringstatic` functions are now exported. They can be run interactively by loading the `stringstatic` package. Using `staticimports` remains the recommended way to use `stringstatic` functions in your own package.

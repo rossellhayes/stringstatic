@@ -25,16 +25,24 @@ str_extract <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
-	regmatches(
-		x = string,
-		m = regexpr(
-			pattern = pattern,
-			text = string,
-			ignore.case = ignore.case,
-			perl = !is_fixed,
-			fixed = is_fixed
-		)
+	result <- Map(
+		function(string, pattern) {
+			regmatches(
+				x = string,
+				m = regexpr(
+					pattern = pattern,
+					text = string,
+					ignore.case = ignore.case,
+					perl = !is_fixed,
+					fixed = is_fixed
+				)
+			)
+		},
+		string, pattern, USE.NAMES = FALSE
 	)
+
+	result[lengths(result) == 0] <- NA_character_
+	unlist(result)
 }
 
 #' Extract matching patterns from a string
@@ -63,16 +71,23 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
-	result <- regmatches(
-		x = string,
-		m = gregexpr(
-			pattern = pattern,
-			text = string,
-			ignore.case = ignore.case,
-			perl = !is_fixed,
-			fixed = is_fixed
-		)
+	result <- mapply(
+		function(string, pattern) {
+			regmatches(
+				x = string,
+				m = gregexpr(
+					pattern = pattern,
+					text = string,
+					ignore.case = ignore.case,
+					perl = !is_fixed,
+					fixed = is_fixed
+				)
+			)
+		},
+		string, pattern, USE.NAMES = FALSE
 	)
+
+	result[lengths(result) == 0] <- NA_character_
 
 	if (isTRUE(simplify)) {
 		max_length <- max(lengths(result))
