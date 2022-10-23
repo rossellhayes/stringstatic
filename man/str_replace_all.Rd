@@ -4,7 +4,7 @@
 \alias{str_replace_all}
 \title{Replace matched patterns in a string}
 \usage{
-str_replace_all(string, pattern, replacement, fixed = FALSE)
+str_replace_all(string, pattern, replacement)
 }
 \arguments{
 \item{string}{Input vector.

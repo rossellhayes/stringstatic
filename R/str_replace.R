@@ -73,7 +73,7 @@ str_replace <- function(string, pattern, replacement) {
 #'
 #' @return A character vector.
 #' @export
-str_replace_all <- function(string, pattern, replacement, fixed = FALSE) {
+str_replace_all <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
