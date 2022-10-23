@@ -11,19 +11,18 @@ test_that("vectorised patterns work", {
 	expect_equal(str_detect("ab", c("a", "b", "c"), negate = TRUE), c(F, F, T))
 })
 
-## Not implemented
-# test_that("str_starts() and str_ends() match expected strings", {
-# 	expect_equal(str_starts(c("ab", "ba"), "a"), c(TRUE, FALSE))
-# 	expect_equal(str_ends(c("ab", "ba"), "a"), c(FALSE, TRUE))
-#
-# 	# negation
-# 	expect_equal(str_starts(c("ab", "ba"), "a", negate = TRUE), c(FALSE, TRUE))
-# 	expect_equal(str_ends(c("ab", "ba"), "a", negate = TRUE), c(TRUE, FALSE))
-#
-# 	# correct precedence
-# 	expect_equal(str_starts(c("ab", "ba", "cb"), "a|b"), c(TRUE, TRUE, FALSE))
-# 	expect_equal(str_ends(c("ab", "ba", "bc"), "a|b"), c(TRUE, TRUE, FALSE))
-# })
+test_that("str_starts() and str_ends() match expected strings", {
+	expect_equal(str_starts(c("ab", "ba"), "a"), c(TRUE, FALSE))
+	expect_equal(str_ends(c("ab", "ba"), "a"), c(FALSE, TRUE))
+
+	# negation
+	expect_equal(str_starts(c("ab", "ba"), "a", negate = TRUE), c(FALSE, TRUE))
+	expect_equal(str_ends(c("ab", "ba"), "a", negate = TRUE), c(TRUE, FALSE))
+
+	# correct precedence
+	expect_equal(str_starts(c("ab", "ba", "cb"), "a|b"), c(TRUE, TRUE, FALSE))
+	expect_equal(str_ends(c("ab", "ba", "bc"), "a|b"), c(TRUE, TRUE, FALSE))
+})
 
 test_that("can use fixed() and coll()", {
 	expect_equal(str_detect("X", fixed(".")), FALSE)

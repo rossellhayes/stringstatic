@@ -1,10 +1,12 @@
 # stringstatic (development version)
 
 ## New functions
-* Added `regex()`.
-* Added `str_count()`.
-* Added `str_dup()`.
-* Added `str_replace_na()`.
+* `regex()`
+* `str_count()`
+* `str_dup()`
+* `str_ends()`
+* `str_replace_na()`
+* `str_starts()`
 
 ## New arguments
 * `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
