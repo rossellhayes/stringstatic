@@ -49,12 +49,19 @@ str_which <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
-	grep(
-		pattern,
-		x = string,
-		ignore.case = ignore.case,
-		perl = !is_fixed,
-		fixed = is_fixed,
-		invert = negate
+	result <- Map(
+		function(string, pattern) {
+			grep(
+				pattern,
+				x = string,
+				ignore.case = ignore.case,
+				perl = !is_fixed,
+				fixed = is_fixed,
+				invert = negate
+			)
+		},
+		string, pattern, USE.NAMES = FALSE
 	)
+
+	which(lengths(result) > 0)
 }
