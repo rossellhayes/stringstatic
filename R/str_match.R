@@ -25,20 +25,29 @@ str_match <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
-	matches <- regmatches(
-		x = string,
-		m = regexec(
-			pattern = pattern,
-			text = string,
-			ignore.case = ignore.case,
-			perl = !is_fixed,
-			fixed = is_fixed
-		)
+	matches <- mapply(
+		function(string, pattern) {
+			regmatches(
+				x = string,
+				m = regexec(
+					pattern = pattern,
+					text = string,
+					ignore.case = ignore.case,
+					perl = !is_fixed,
+					fixed = is_fixed
+				)
+			)
+		},
+		string, pattern, USE.NAMES = FALSE
 	)
 
+	length <- max(lengths(matches))
+	matches <- lapply(matches, `[`, seq_len(length))
+
 	matrix(
-		unlist(matches, use.names = FALSE),
+		as.character(unlist(matches, use.names = FALSE)),
 		nrow = length(matches),
+		ncol = length,
 		byrow = TRUE
 	)
 }
