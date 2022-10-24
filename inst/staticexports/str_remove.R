@@ -20,6 +20,8 @@ str_remove <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
+	sub <- Vectorize(sub, c("pattern", "x"), USE.NAMES = FALSE)
+
 	sub(
 		pattern,
 		replacement = "",
@@ -51,6 +53,8 @@ str_remove <- function(string, pattern) {
 str_remove_all <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+
+	gsub <- Vectorize(gsub, c("pattern", "x"), USE.NAMES = FALSE)
 
 	gsub(
 		pattern,
