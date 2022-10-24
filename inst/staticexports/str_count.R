@@ -17,8 +17,8 @@
 #' @return An integer vector.
 #' @noRd
 str_count <- function(string, pattern = "") {
-	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
 	lengths(
 		gregexpr(

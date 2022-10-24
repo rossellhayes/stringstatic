@@ -19,8 +19,8 @@
 #'   followed by one column for each capture group.
 #' @noRd
 str_extract <- function(string, pattern) {
-	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
 	result <- Map(
 		function(string, pattern) {
@@ -65,8 +65,8 @@ str_extract <- function(string, pattern) {
 #'   or a character matrix if `simplify = TRUE`.
 #' @noRd
 str_extract_all <- function(string, pattern, simplify = FALSE) {
-	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
 	result <- mapply(
 		function(string, pattern) {

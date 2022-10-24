@@ -62,8 +62,8 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' @return A logical vector.
 #' @export
 str_starts <- function(string, pattern, negate = FALSE) {
-	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
 	grep <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)
 
@@ -102,8 +102,8 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #' @return A logical vector.
 #' @export
 str_ends <- function(string, pattern, negate = FALSE) {
-	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
 	grep <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)
 

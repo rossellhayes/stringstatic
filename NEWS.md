@@ -21,6 +21,9 @@
 * `str_remove()` and `str_remove_all()` have been refactored to no longer rely on `str_replace()` and `str_replace_all()`. This improves their portability.
 * All `stringstatic` functions are now exported. They can be run interactively by loading the `stringstatic` package. Using `staticimports` remains the recommended way to use `stringstatic` functions in your own package.
 
+## Bug fixes
+* Fixed a bug where `fixed(ignore_case = TRUE)` would not actually ignore case.
+
 # stringstatic 0.0.2
 
 * Added `str_match()`

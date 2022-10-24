@@ -55,6 +55,10 @@ regex <- function(
 #' @return An integer vector.
 #' @noRd
 fixed <- function(pattern, ignore_case = FALSE) {
+	if (isTRUE(ignore_case)) {
+		pattern <- paste0("\\Q", pattern, "\\E")
+	}
+
 	structure(
 		pattern,
 		options = list(case_insensitive = ignore_case),
