@@ -2,6 +2,7 @@
 
 ## New functions
 * `regex()`
+* `str_c()`
 * `str_count()`
 * `str_dup()`
 * `str_ends()`

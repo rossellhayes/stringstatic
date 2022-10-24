@@ -1,0 +1,39 @@
+#' Join multiple strings into a single string
+#'
+#' Dependency-free drop-in alternative for `stringr::str_c()`.
+#'
+#' @param ... One or more character vectors.
+#'   Zero length arguments are removed.
+#'   Short arguments are recycled to the length of the longest.
+#'
+#'   Like most other R functions, missing values are "infectious":
+#'   whenever a missing value is combined with another string
+#'   the result will always be missing.
+#'   Use `str_replace_na()` to convert `NA` to "NA"
+#'
+#' @param sep String to insert between input vectors.
+#'
+#' @param collapse
+#'   Optional string used to combine input vectors into single string.
+#'
+#' @return If `collapse = NULL` (the default) a character vector
+#'   with length equal to the longest input string.
+#'   If collapse is non-`NULL`, a character vector of length 1.
+#' @noRd
+str_c <- function(..., sep = "", collapse = NULL) {
+	strings <- list(...)
+	strings <- Filter(function(x) !is.null(x), strings)
+
+	if (any(lengths(strings) == 0)) {
+		if (length(collapse) == 0) {
+			return(character(0))
+		}
+
+		return("")
+	}
+
+	do.call(
+		paste,
+		args = c(strings, list(sep = sep, collapse = collapse, recycle0 = TRUE))
+	)
+}
