@@ -19,7 +19,24 @@
 #' @return A character vector.
 #' @noRd
 str_subset <- function(string, pattern, negate = FALSE) {
-	string[str_which(string, pattern, negate = negate)]
+	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
+	is_fixed <- !ignore.case && inherits(pattern, "fixed")
+
+	result <- Map(
+		function(string, pattern) {
+			grep(
+				pattern,
+				x = string,
+				ignore.case = ignore.case,
+				perl = !is_fixed,
+				fixed = is_fixed,
+				invert = negate
+			)
+		},
+		string, pattern, USE.NAMES = FALSE
+	)
+
+	string[which(lengths(result) > 0)]
 }
 
 #' Find positions of strings matching a pattern
