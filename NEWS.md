@@ -7,6 +7,7 @@
 * `str_dup()`
 * `str_ends()`
 * `str_length()`
+* `str_pad()`
 * `str_replace_na()`
 * `str_starts()`
 * `str_width()`
