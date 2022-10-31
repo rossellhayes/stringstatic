@@ -87,18 +87,12 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
 		string, pattern, USE.NAMES = FALSE
 	)
 
-	result[lengths(result) == 0] <- NA_character_
+	result[is.na(string)] <- NA_character_
 
 	if (isTRUE(simplify)) {
 		max_length <- max(lengths(result))
-
-		result <- t(vapply(
-			result,
-			function(x) x[seq_len(max_length)],
-			character(max_length)
-		))
-
-		result[is.na(result)] <- ""
+		result <- lapply(result, function(x) c(x, rep("", max_length - length(x))))
+		result <- do.call(rbind, result)
 	}
 
 	result
