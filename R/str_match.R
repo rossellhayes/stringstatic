@@ -44,10 +44,7 @@ str_match <- function(string, pattern) {
 	length <- max(lengths(matches))
 	matches <- lapply(matches, `[`, seq_len(length))
 
-	matrix(
-		as.character(unlist(matches, use.names = FALSE)),
-		nrow = length(matches),
-		ncol = length,
-		byrow = TRUE
-	)
+	result <- do.call(rbind, matches)
+	result[result == ""] <- NA_character_
+	result
 }
