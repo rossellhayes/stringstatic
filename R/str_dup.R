@@ -5,6 +5,8 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::str_dup()`.
 #'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
 #' @param string Input character vector.
 #' @param times Number of times to duplicate each string.
 #'

@@ -5,6 +5,8 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::str_extract()`.
 #'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.
 #'
@@ -48,6 +50,8 @@ str_extract <- function(string, pattern) {
 #' Extract matching patterns from a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_extract_all()`.
+#'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
 #'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.

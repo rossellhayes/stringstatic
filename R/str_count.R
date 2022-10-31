@@ -5,6 +5,8 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::str_count()`.
 #'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.
 #'

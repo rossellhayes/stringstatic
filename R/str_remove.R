@@ -5,6 +5,8 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::str_remove()`.
 #'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.
 #'
@@ -38,6 +40,8 @@ str_remove <- function(string, pattern) {
 #' Remove matched patterns in a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_remove_all()`.
+#'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
 #'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.

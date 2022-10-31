@@ -3,6 +3,9 @@
 \name{str_dup}
 \alias{str_dup}
 \title{Duplicate and concatenate strings within a character vector}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_dup(string, times)
 }

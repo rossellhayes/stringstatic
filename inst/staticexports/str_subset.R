@@ -2,6 +2,8 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::str_subset()`.
 #'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.
 #'
@@ -42,6 +44,8 @@ str_subset <- function(string, pattern, negate = FALSE) {
 #' Find positions of strings matching a pattern
 #'
 #' Dependency-free drop-in alternative for `stringr::str_which()`.
+#'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
 #'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.

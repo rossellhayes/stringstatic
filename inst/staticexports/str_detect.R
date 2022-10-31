@@ -2,6 +2,8 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::str_detect()`.
 #'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.
 #'
@@ -81,6 +83,8 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #' Detect the presence or absence of a pattern at the end of a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_ends()`.
+#'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
 #'
 #' @param string Input vector.
 #'   Either a character vector, or something coercible to one.

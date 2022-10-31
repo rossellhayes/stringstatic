@@ -3,6 +3,9 @@
 \name{str_extract}
 \alias{str_extract}
 \title{Extract matching patterns from a string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_extract(string, pattern)
 }

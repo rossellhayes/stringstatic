@@ -3,6 +3,9 @@
 \name{regex}
 \alias{regex}
 \title{Control regex matching behavior}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 regex(
   pattern,

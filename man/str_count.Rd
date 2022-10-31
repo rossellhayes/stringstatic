@@ -3,6 +3,9 @@
 \name{str_count}
 \alias{str_count}
 \title{Count the number of matches in a string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_count(string, pattern = "")
 }

@@ -5,6 +5,8 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::regex()`.
 #'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
 #' @param pattern Pattern to modify behavior.
 #' @param ignore_case Should case differences be ignored in the match?
 #' @param multiline
@@ -47,6 +49,8 @@ regex <- function(
 }
 
 #' Compare literal bytes in the string
+#'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
 #'
 #' Dependency-free drop-in alternative for `stringr::fixed()`.
 #' This is very fast,

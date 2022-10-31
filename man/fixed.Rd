@@ -3,6 +3,13 @@
 \name{fixed}
 \alias{fixed}
 \title{Compare literal bytes in the string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+
+Dependency-free drop-in alternative for \code{stringr::fixed()}.
+This is very fast,
+but not usually what you want for non-ASCII character sets.
+}
 \usage{
 fixed(pattern, ignore_case = FALSE)
 }
@@ -15,7 +22,5 @@ fixed(pattern, ignore_case = FALSE)
 An integer vector.
 }
 \description{
-Dependency-free drop-in alternative for \code{stringr::fixed()}.
-This is very fast,
-but not usually what you want for non-ASCII character sets.
+Compare literal bytes in the string
 }

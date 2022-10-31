@@ -3,6 +3,9 @@
 \name{str_remove}
 \alias{str_remove}
 \title{Remove matched patterns in a string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_remove(string, pattern)
 }

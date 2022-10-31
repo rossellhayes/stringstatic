@@ -3,6 +3,9 @@
 \name{str_detect}
 \alias{str_detect}
 \title{Detect the presence or absence of a pattern in a string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_detect(string, pattern, negate = FALSE)
 }

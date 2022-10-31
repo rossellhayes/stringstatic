@@ -3,6 +3,9 @@
 \name{str_replace_all}
 \alias{str_replace_all}
 \title{Replace matched patterns in a string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_replace_all(string, pattern, replacement)
 }

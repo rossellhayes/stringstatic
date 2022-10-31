@@ -3,6 +3,9 @@
 \name{str_ends}
 \alias{str_ends}
 \title{Detect the presence or absence of a pattern at the end of a string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_ends(string, pattern, negate = FALSE)
 }

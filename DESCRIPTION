@@ -1,9 +1,14 @@
 Package: stringstatic
 Title: Dependency-Free String Operations
 Version: 0.0.2.9000
-Authors@R: 
+Authors@R: c(
     person("Alexander", "Rossell Hayes", , "alexander@rossellhayes.com", role = c("aut", "cre", "cph"),
-           comment = c(ORCID = "0000-0001-9412-0457"))
+           comment = c(ORCID = "0000-0001-9412-0457")),
+    person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("ctb", "cph"),
+           comment = "stringr package"),
+    person("RStudio", role = "cph",
+           comment = "stringr package")
+  )
 Description: Provides a reimplementation of several functions from the
     'stringr' package, with the same user interface. These functions have
     no external dependencies and can be copied directly into your package

@@ -3,6 +3,9 @@
 \name{str_subset}
 \alias{str_subset}
 \title{Keep strings matching a pattern}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_subset(string, pattern, negate = FALSE)
 }

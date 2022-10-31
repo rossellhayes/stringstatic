@@ -5,6 +5,8 @@
 #'
 #' Dependency-free drop-in alternative for `stringr::str_c()`.
 #'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
 #' @param ... One or more character vectors.
 #'   Zero length arguments are removed.
 #'   Short arguments are recycled to the length of the longest.

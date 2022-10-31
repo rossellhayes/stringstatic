@@ -3,6 +3,9 @@
 \name{str_c}
 \alias{str_c}
 \title{Join multiple strings into a single string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_c(..., sep = "", collapse = NULL)
 }

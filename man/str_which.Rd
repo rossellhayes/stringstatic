@@ -3,6 +3,9 @@
 \name{str_which}
 \alias{str_which}
 \title{Find positions of strings matching a pattern}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_which(string, pattern, negate = FALSE)
 }

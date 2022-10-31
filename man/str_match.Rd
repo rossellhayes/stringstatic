@@ -3,6 +3,9 @@
 \name{str_match}
 \alias{str_match}
 \title{Extract matched groups from a string}
+\source{
+Adapted from the \href{https://stringr.tidyverse.org/}{stringr} package.
+}
 \usage{
 str_match(string, pattern)
 }
