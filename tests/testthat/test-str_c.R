@@ -42,10 +42,20 @@ test_that("obeys tidyverse recycling rules", {
 	expect_equal(str_c(c("x", "y"), NULL), c("x", "y"))
 })
 
-# # This doesn't seem true even in stringr?
-# test_that("vectorised arguments error", {
-# 	expect_snapshot(error = TRUE, {
-# 		str_c(letters, sep = c("a", "b"))
-# 		str_c(letters, collapse = c("a", "b"))
-# 	})
-# })
+test_that("vectorised arguments error", {
+	expect_error(str_c(letters, sep = c("a", "b")))
+	expect_error(str_c(letters, sep = NULL))
+	expect_error(str_c(letters, sep = character(0)))
+	expect_error(str_c(letters, collapse = c("a", "b")))
+	expect_error(str_c(letters, collapse = character(0)))
+})
+
+test_that("edge cases", {
+	expect_equal(str_c("a", character(0)), character(0))
+
+	expect_equal(str_c(character(0), character(0)), character(0))
+	expect_equal(str_c(character(0), character(0), collapse = " "), "")
+
+	expect_equal(str_c(NULL, NULL), character(0))
+	expect_equal(str_c(NULL, NULL, collapse = " "), "")
+})
