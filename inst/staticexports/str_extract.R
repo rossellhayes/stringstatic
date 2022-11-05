@@ -24,8 +24,12 @@ str_extract <- function(string, pattern) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
+	if (length(string) == 0 || length(pattern) == 0) return(character(0))
+
 	result <- Map(
 		function(string, pattern) {
+			if (is.na(string) || is.na(pattern)) return(NA_character_)
+
 			regmatches(
 				x = string,
 				m = regexpr(
@@ -72,8 +76,12 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
+	if (length(string) == 0 || length(pattern) == 0) return(list())
+
 	result <- mapply(
 		function(string, pattern) {
+			if (is.na(string) || is.na(pattern)) return(list(NA_character_))
+
 			regmatches(
 				x = string,
 				m = gregexpr(
@@ -87,8 +95,6 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
 		},
 		string, pattern, USE.NAMES = FALSE
 	)
-
-	result[is.na(string)] <- NA_character_
 
 	if (isTRUE(simplify)) {
 		max_length <- max(lengths(result))

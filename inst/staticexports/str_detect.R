@@ -24,9 +24,9 @@ str_detect <- function(string, pattern, negate = FALSE) {
 	is_fixed <- inherits(pattern, "fixed")
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 
-	grep <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)
+	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 
-	indices <- grep(
+	indices <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)(
 		pattern,
 		x = string,
 		ignore.case = ignore.case,
@@ -64,9 +64,9 @@ str_starts <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
-	grep <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)
+	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 
-	indices <- grep(
+	indices <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)(
 		paste0("^(", pattern, ")"),
 		x = string,
 		ignore.case = ignore.case,
@@ -106,9 +106,9 @@ str_ends <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
-	grep <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)
+	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 
-	indices <- grep(
+	indices <- grep <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)(
 		paste0("(", pattern, ")$"),
 		x = string,
 		ignore.case = ignore.case,

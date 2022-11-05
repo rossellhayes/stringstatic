@@ -91,3 +91,23 @@ test_that("can use fixed() and coll()", {
 # 	# 	list(c("a", "b", "c"))
 # 	# )
 # })
+
+test_that("edge cases", {
+	expect_equal(str_extract(NA, "a"), NA_character_)
+	expect_equal(str_extract_all(NA, "a"), list(NA_character_))
+
+	expect_equal(str_extract(c(NA, "a"), "a"), c(NA, "a"))
+	expect_equal(str_extract_all(c(NA, "a"), "a"), list(NA_character_, "a"))
+
+	expect_equal(str_extract(character(0), "a"), character(0))
+	expect_equal(str_extract_all(character(0), "a"), list())
+
+	expect_equal(str_extract("a", NA_character_), NA_character_)
+	expect_equal(str_extract_all("a", NA_character_), list(NA_character_))
+
+	expect_equal(str_extract("a", c(NA, "a")), c(NA, "a"))
+	expect_equal(str_extract_all("a", c(NA, "a")), list(NA_character_, "a"))
+
+	expect_equal(str_extract("a", character(0)), character(0))
+	expect_equal(str_extract_all("a", character(0)), list())
+})
