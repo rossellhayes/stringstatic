@@ -4,6 +4,8 @@ Version: 0.0.2.9000
 Authors@R: c(
     person("Alexander", "Rossell Hayes", , "alexander@rossellhayes.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0001-9412-0457")),
+    person("Eli", "Pousson", , "eli.pousson@gmail.com", role = "ctb",
+           comment = c(ORCID = "0000-0001-8280-1706", "str_pad() function")),
     person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("ctb", "cph"),
            comment = "stringr package"),
     person("RStudio", role = "cph",

@@ -6,8 +6,11 @@
 * `str_count()`
 * `str_dup()`
 * `str_ends()`
+* `str_length()`
+* `str_pad()`
 * `str_replace_na()`
 * `str_starts()`
+* `str_width()`
 
 ## New arguments
 * `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
