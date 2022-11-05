@@ -16,6 +16,7 @@ str_length <- function(string) {
 #' Compute the width of a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_width()`.
+#' Results for non-ASCII characters may be inaccurate in R < 4.0.
 #'
 #' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
 #'

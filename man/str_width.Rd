@@ -18,4 +18,5 @@ A numeric vector the same length as string.
 }
 \description{
 Dependency-free drop-in alternative for \code{stringr::str_width()}.
+Results for non-ASCII characters may be inaccurate in R < 4.0.
 }
