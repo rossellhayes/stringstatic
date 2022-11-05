@@ -23,19 +23,25 @@
 #'   If collapse is non-`NULL`, a character vector of length 1.
 #' @noRd
 str_c <- function(..., sep = "", collapse = NULL) {
-	strings <- list(...)
-	strings <- Filter(function(x) !is.null(x), strings)
+	stopifnot(
+		"`sep` must be a single string, not a character vector." = length(sep) == 1,
+		"`collapse` must be a single string or `NULL`, not a character vector." =
+			length(collapse) == 1 || is.null(collapse)
+	)
 
-	if (any(lengths(strings) == 0)) {
-		if (length(collapse) == 0) {
-			return(character(0))
-		}
+	strings <- Filter(function(x) !is.null(x), list(...))
 
+	if (length(strings) == 0 || any(lengths(strings) == 0)) {
+		if (length(collapse) == 0) return(character(0))
 		return("")
 	}
 
-	do.call(
-		paste,
-		args = c(strings, list(sep = sep, collapse = collapse, recycle0 = TRUE))
-	)
+	max_length <- max(lengths(strings))
+
+	result <- lapply(strings, rep_len, length.out = max_length)
+	result <- do.call(cbind, result)
+	result <- apply(result, 1, paste, collapse = sep)
+	result <- paste(result, collapse = collapse)
+
+	result
 }

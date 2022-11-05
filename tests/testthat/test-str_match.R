@@ -110,6 +110,15 @@ test_that("vectorized", {
 	)
 })
 
+test_that("edge cases", {
+	expect_equal(str_match(NA, "a"), matrix(NA_character_))
+	expect_equal(str_match(c(NA, "a"), "a"), matrix(c(NA, "a")))
+	expect_equal(str_match(character(0), "a"), matrix(character(0)))
+	expect_equal(str_match("a", NA_character_), matrix(NA_character_))
+	expect_equal(str_match("a", c(NA, "a")), matrix(c(NA, "a")))
+	expect_equal(str_match("a", character(0)), matrix(character(0)))
+})
+
 # # This doesn't seem necessary
 # test_that("uses tidyverse recycling rules", {
 # 	expect_error(

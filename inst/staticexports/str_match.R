@@ -24,8 +24,12 @@ str_match <- function(string, pattern) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "fixed")
 
+	if (length(string) == 0 || length(pattern) == 0) return(matrix(character(0)))
+
 	matches <- mapply(
 		function(string, pattern) {
+			if (is.na(string) || is.na(pattern)) return(NA_character_)
+
 			regmatches(
 				x = string,
 				m = regexec(
