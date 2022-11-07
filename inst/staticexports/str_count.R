@@ -20,5 +20,13 @@
 #' @noRd
 str_count <- function(string, pattern = "") {
 	is_fixed <- inherits(pattern, "stringr_fixed")
-	lengths(gregexpr(pattern, text = string, perl = !is_fixed, fixed = is_fixed))
+	mapply(
+		function(string, pattern) {
+			match <- unlist(
+				gregexpr(pattern, text = string, perl = !is_fixed, fixed = is_fixed)
+			)
+			length(match[match > 0])
+		},
+		string, pattern, SIMPLIFY = "vector", USE.NAMES = FALSE
+	)
 }
