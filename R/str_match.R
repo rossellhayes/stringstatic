@@ -24,10 +24,9 @@
 #'   followed by one column for each capture group.
 #' @export
 str_match <- function(string, pattern) {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
-
 	if (length(string) == 0 || length(pattern) == 0) return(matrix(character(0)))
+
+	is_fixed <- inherits(pattern, "stringr_fixed")
 
 	matches <- mapply(
 		function(string, pattern) {
@@ -36,11 +35,7 @@ str_match <- function(string, pattern) {
 			regmatches(
 				x = string,
 				m = regexec(
-					pattern = pattern,
-					text = string,
-					ignore.case = ignore.case,
-					perl = !is_fixed,
-					fixed = is_fixed
+					pattern = pattern, text = string, perl = !is_fixed, fixed = is_fixed
 				)
 			)
 		},

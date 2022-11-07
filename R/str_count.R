@@ -22,16 +22,6 @@
 #' @return An integer vector.
 #' @export
 str_count <- function(string, pattern = "") {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
-
-	lengths(
-		gregexpr(
-			pattern,
-			text = string,
-			ignore.case = ignore.case,
-			perl = !is_fixed,
-			fixed = is_fixed
-		)
-	)
+	is_fixed <- inherits(pattern, "stringr_fixed")
+	lengths(gregexpr(pattern, text = string, perl = !is_fixed, fixed = is_fixed))
 }

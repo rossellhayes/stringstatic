@@ -31,18 +31,9 @@
 #' @return A character vector.
 #' @noRd
 str_replace <- function(string, pattern, replacement) {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
-
-	sub <- Vectorize(sub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)
-
-	sub(
-		pattern,
-		replacement,
-		x = string,
-		ignore.case = ignore.case,
-		perl = !is_fixed,
-		fixed = is_fixed
+	is_fixed <- inherits(pattern, "stringr_fixed")
+	Vectorize(sub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
+		pattern, replacement, x = string, perl = !is_fixed, fixed = is_fixed
 	)
 }
 
@@ -80,8 +71,7 @@ str_replace <- function(string, pattern, replacement) {
 #' @return A character vector.
 #' @noRd
 str_replace_all <- function(string, pattern, replacement) {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
+	is_fixed <- inherits(pattern, "stringr_fixed")
 
 	if (!is.null(names(pattern))) {
 		for (i in seq_along(pattern)) {
@@ -89,7 +79,6 @@ str_replace_all <- function(string, pattern, replacement) {
 				pattern = names(pattern)[[i]],
 				replacement = pattern[[i]],
 				x = string,
-				ignore.case = ignore.case,
 				perl = !is_fixed,
 				fixed = is_fixed
 			)
@@ -98,15 +87,8 @@ str_replace_all <- function(string, pattern, replacement) {
 		return(string)
 	}
 
-	gsub <- Vectorize(gsub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)
-
-	gsub(
-		pattern,
-		replacement,
-		x = string,
-		ignore.case = ignore.case,
-		perl = !is_fixed,
-		fixed = is_fixed
+	Vectorize(gsub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
+		pattern, replacement, x = string, perl = !is_fixed, fixed = is_fixed
 	)
 }
 

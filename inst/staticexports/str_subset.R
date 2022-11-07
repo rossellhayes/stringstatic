@@ -22,7 +22,7 @@
 #' @noRd
 str_subset <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
+	is_fixed <- !ignore.case && inherits(pattern, "stringr_fixed")
 
 	result <- Map(
 		function(string, pattern) {
@@ -65,7 +65,7 @@ str_subset <- function(string, pattern, negate = FALSE) {
 #' @noRd
 str_which <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
+	is_fixed <- !ignore.case && inherits(pattern, "stringr_fixed")
 
 	result <- Map(
 		function(string, pattern) {

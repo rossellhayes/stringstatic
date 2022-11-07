@@ -39,11 +39,6 @@
 #'   the same number of rows as the length of `string`/`pattern`.
 #' @export
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
-	is_fixed <- inherits(pattern, "fixed")
-
-	# TODO:
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-
 	if (length(string) == 0 || length(pattern) == 0) {
 		if (isTRUE(simplify)) {
 			if (is.infinite(n)) return(matrix(character(0), nrow = 0, ncol = 0))
@@ -52,13 +47,13 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 		return(list())
 	}
 
+	is_fixed <- inherits(pattern, "stringr_fixed")
+
 	result <- Map(
 		function(string, pattern) {
 			if (is.na(string) || is.na(pattern)) return(NA_character_)
 			unlist(
-				strsplit(
-					x = string, split = pattern, fixed = is_fixed, perl = !is_fixed
-				)
+				strsplit(string, split = pattern, fixed = is_fixed, perl = !is_fixed)
 			)
 		},
 		string, pattern, USE.NAMES = FALSE
@@ -115,23 +110,18 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 #'   the same number of rows as the length of `string`/`pattern`.
 #' @export
 str_split_fixed <- function(string, pattern, n) {
-	is_fixed <- inherits(pattern, "fixed")
-
-	# TODO:
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-
 	if (length(string) == 0 || length(pattern) == 0) {
 		if (is.infinite(n)) return(matrix(character(0), nrow = 0, ncol = 0))
 		return(matrix(character(0), nrow = 0, ncol = n))
 	}
 
+	is_fixed <- inherits(pattern, "stringr_fixed")
+
 	result <- Map(
 		function(string, pattern) {
 			if (is.na(string) || is.na(pattern)) return(NA_character_)
 			unlist(
-				strsplit(
-					x = string, split = pattern, fixed = is_fixed, perl = !is_fixed
-				)
+				strsplit(string, split = pattern, fixed = is_fixed, perl = !is_fixed)
 			)
 		},
 		string, pattern, USE.NAMES = FALSE
