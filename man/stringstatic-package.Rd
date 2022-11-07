@@ -23,7 +23,7 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item Eli Pousson \email{eli.pousson@gmail.com} (\href{https://orcid.org/0000-0001-8280-1706}{ORCID}) (str_pad() function) [contributor]
+  \item Eli Pousson \email{eli.pousson@gmail.com} (\href{https://orcid.org/0000-0001-8280-1706}{ORCID}) (str_pad() and str_split() functions) [contributor]
   \item Hadley Wickham \email{hadley@rstudio.com} (stringr package) [contributor, copyright holder]
   \item RStudio (stringr package) [copyright holder]
 }
