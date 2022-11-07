@@ -5,12 +5,11 @@
 * `str_c()`
 * `str_count()`
 * `str_dup()`
-* `str_ends()`
-* `str_length()`
+* `str_length()` and `str_width()`
 * `str_pad()`
 * `str_replace_na()`
-* `str_starts()`
-* `str_width()`
+* `str_split()` and `str_split_fixed()`
+* `str_starts()` and `str_ends()`
 
 ## New arguments
 * `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
