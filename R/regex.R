@@ -25,27 +25,24 @@ regex <- function(
 	multiline = FALSE,
 	comments = FALSE,
 	dotall = FALSE
-	) {
-	options <- c(
+) {
+	options <- paste(
+		if (isTRUE(ignore_case)) "i",
 		if (isTRUE(multiline)) "m",
 		if (isTRUE(dotall)) "s",
-		if (isTRUE(comments)) "x"
+		if (isTRUE(comments)) "x",
+		sep = ""
 	)
 
-	if (length(options) > 0) {
-		pattern <- paste0("(?", paste(options, collapse = ""), ")", pattern)
+	if (nzchar(options)) {
+		if (!is.null(names(pattern))) {
+			names(pattern) <- paste0("(?", options, ")", names(pattern))
+		} else {
+			pattern <- paste0("(?", options, ")", pattern)
+		}
 	}
 
-	structure(
-		pattern,
-		options = list(
-			case_insensitive = ignore_case,
-			multiline = multiline,
-			comments = comments,
-			dotall = dotall
-		),
-		class = c("regex", "pattern", "character")
-	)
+	structure(pattern, class = c("stringr_regex", "stringr_pattern", "character"))
 }
 
 #' Compare literal bytes in the string
@@ -62,13 +59,17 @@ regex <- function(
 #' @return An integer vector.
 #' @export
 fixed <- function(pattern, ignore_case = FALSE) {
-	if (isTRUE(ignore_case)) {
-		pattern <- paste0("\\Q", pattern, "\\E")
+	if (!isTRUE(ignore_case)) {
+		return(structure(
+			pattern, class = c("stringr_fixed", "stringr_pattern", "character")
+		))
 	}
 
-	structure(
-		pattern,
-		options = list(case_insensitive = ignore_case),
-		class = c("fixed", "pattern", "character")
-	)
+	if (!is.null(names(pattern))) {
+		names(pattern) <- paste0("(?i)", names(pattern))
+	} else {
+		pattern <- paste0("(?i)", pattern)
+	}
+
+	structure(pattern, class = c("stringr_regex", "stringr_pattern", "character"))
 }

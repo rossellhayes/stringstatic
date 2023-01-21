@@ -22,7 +22,7 @@
 #' @return A character vector.
 #' @noRd
 str_pad <- function(
-		string, width, side = c("left", "right", "both"), pad = " ", use_width = TRUE
+	string, width, side = c("left", "right", "both"), pad = " ", use_width = TRUE
 ) {
 	if (!is.numeric(width)) {
 		return(string[NA])

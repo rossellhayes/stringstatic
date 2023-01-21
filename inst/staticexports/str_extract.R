@@ -21,10 +21,9 @@
 #'   followed by one column for each capture group.
 #' @noRd
 str_extract <- function(string, pattern) {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
-
 	if (length(string) == 0 || length(pattern) == 0) return(character(0))
+
+	is_fixed <- inherits(pattern, "stringr_fixed")
 
 	result <- Map(
 		function(string, pattern) {
@@ -33,11 +32,7 @@ str_extract <- function(string, pattern) {
 			regmatches(
 				x = string,
 				m = regexpr(
-					pattern = pattern,
-					text = string,
-					ignore.case = ignore.case,
-					perl = !is_fixed,
-					fixed = is_fixed
+					pattern = pattern, text = string, perl = !is_fixed, fixed = is_fixed
 				)
 			)
 		},
@@ -73,10 +68,9 @@ str_extract <- function(string, pattern) {
 #'   or a character matrix if `simplify = TRUE`.
 #' @noRd
 str_extract_all <- function(string, pattern, simplify = FALSE) {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
-
 	if (length(string) == 0 || length(pattern) == 0) return(list())
+
+	is_fixed <- inherits(pattern, "stringr_fixed")
 
 	result <- mapply(
 		function(string, pattern) {
@@ -85,11 +79,7 @@ str_extract_all <- function(string, pattern, simplify = FALSE) {
 			regmatches(
 				x = string,
 				m = gregexpr(
-					pattern = pattern,
-					text = string,
-					ignore.case = ignore.case,
-					perl = !is_fixed,
-					fixed = is_fixed
+					pattern = pattern, text = string, perl = !is_fixed, fixed = is_fixed
 				)
 			)
 		},

@@ -1,0 +1,145 @@
+# `R/str_split.R` is imported from `inst/staticexports/str_split.R`. 
+# Please edit that file instead.
+
+#' Split up a string into pieces
+#'
+#' Dependency-free drop-in alternative for `stringr::str_split()`.
+#'
+#' @author Eli Pousson \email{eli.pousson@gmail.com}
+#'   ([ORCID](https://orcid.org/0000-0001-8280-1706))
+#'
+#'   Alexander Rossell Hayes \email{alexander@rossellhayes.com}
+#'   ([ORCID](https://orcid.org/0000-0001-9412-0457))
+#'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @param n Maximum number of pieces to return.
+#'   Default (`Inf`) uses all possible split positions.
+#'   This determines the maximum length of each element of the output.
+#'
+#' @param simplify A boolean.
+#'   * `FALSE` (the default): returns a list of character vectors.
+#'   * `TRUE`: returns a character matrix.
+#'
+#' @return
+#'   A list the same length as `string`/`pattern` containing character vectors,
+#'   or if `simplify = FALSE`, a character matrix with n columns and
+#'   the same number of rows as the length of `string`/`pattern`.
+#' @export
+str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
+	if (length(string) == 0 || length(pattern) == 0) {
+		if (isTRUE(simplify)) {
+			if (is.infinite(n)) return(matrix(character(0), nrow = 0, ncol = 0))
+			return(matrix(character(0), nrow = 0, ncol = n))
+		}
+		return(list())
+	}
+
+	is_fixed <- inherits(pattern, "stringr_fixed")
+
+	result <- Map(
+		function(string, pattern) {
+			if (is.na(string) || is.na(pattern)) return(NA_character_)
+			unlist(
+				strsplit(string, split = pattern, fixed = is_fixed, perl = !is_fixed)
+			)
+		},
+		string, pattern, USE.NAMES = FALSE
+	)
+
+	if (!is.infinite(n)) {
+		result <- Map(
+			function(result, string) {
+				if (length(result) <= n) return(result)
+				c(result[seq_len(n - 1)], substr(string, n, .Machine$integer.max))
+			},
+			result, string, USE.NAMES = FALSE
+		)
+	}
+
+	if (isTRUE(simplify)) {
+		if (is.infinite(n)) n <- max(lengths(result))
+		result <- lapply(result, function(x) c(x, rep("", n - length(x))))
+		result <- do.call(rbind, result)
+	}
+
+	result
+}
+
+#' Split up a string into pieces
+#'
+#' Dependency-free drop-in alternative for `stringr::str_split_fixed()`.
+#'
+#' @author Eli Pousson \email{eli.pousson@gmail.com}
+#'   ([ORCID](https://orcid.org/0000-0001-8280-1706))
+#'
+#'   Alexander Rossell Hayes \email{alexander@rossellhayes.com}
+#'   ([ORCID](https://orcid.org/0000-0001-9412-0457))
+#'
+#' @source Adapted from the [stringr](https://stringr.tidyverse.org/) package.
+#'
+#' @param string Input vector.
+#'   Either a character vector, or something coercible to one.
+#'
+#' @param pattern Pattern to look for.
+#'
+#'   The default interpretation is a regular expression,
+#'   as described in [base::regex].
+#'   Control options with [regex()].
+#'
+#'   Match a fixed string (i.e. by comparing only bytes), using [fixed()].
+#'   This is fast, but approximate.
+#'
+#' @param n Maximum number of pieces to return.
+#'   This determines the number of columns in the output;
+#'   if an input is too short, the result will be padded with `""`.
+#'
+#' @return A character matrix with `n` columns and
+#'   the same number of rows as the length of `string`/`pattern`.
+#' @export
+str_split_fixed <- function(string, pattern, n) {
+	if (length(string) == 0 || length(pattern) == 0) {
+		if (is.infinite(n)) return(matrix(character(0), nrow = 0, ncol = 0))
+		return(matrix(character(0), nrow = 0, ncol = n))
+	}
+
+	is_fixed <- inherits(pattern, "stringr_fixed")
+
+	result <- Map(
+		function(string, pattern) {
+			if (is.na(string) || is.na(pattern)) return(NA_character_)
+			unlist(
+				strsplit(string, split = pattern, fixed = is_fixed, perl = !is_fixed)
+			)
+		},
+		string, pattern, USE.NAMES = FALSE
+	)
+
+	if (!is.infinite(n)) {
+		result <- Map(
+			function(result, string) {
+				if (length(result) <= n) return(result)
+				c(result[seq_len(n - 1)], substr(string, n, .Machine$integer.max))
+			},
+			result, string, USE.NAMES = FALSE
+		)
+	}
+
+	if (is.infinite(n)) n <- max(lengths(result))
+	result <- lapply(result, function(x) c(x, rep("", n - length(x))))
+	result <- do.call(rbind, result)
+
+	result
+}

@@ -24,15 +24,13 @@
 #' @return A logical vector.
 #' @export
 str_detect <- function(string, pattern, negate = FALSE) {
-	is_fixed <- inherits(pattern, "fixed")
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
+
+	is_fixed <- inherits(pattern, "stringr_fixed")
 
 	indices <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)(
 		pattern,
 		x = string,
-		ignore.case = ignore.case,
 		perl = !is_fixed,
 		fixed = is_fixed,
 		invert = negate
@@ -64,15 +62,13 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' @return A logical vector.
 #' @export
 str_starts <- function(string, pattern, negate = FALSE) {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
-
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
+
+	is_fixed <- inherits(pattern, "stringr_fixed")
 
 	indices <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)(
 		paste0("^(", pattern, ")"),
 		x = string,
-		ignore.case = ignore.case,
 		perl = !is_fixed,
 		fixed = is_fixed,
 		invert = negate
@@ -106,15 +102,13 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #' @return A logical vector.
 #' @export
 str_ends <- function(string, pattern, negate = FALSE) {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
-
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
+
+	is_fixed <- inherits(pattern, "stringr_fixed")
 
 	indices <- grep <- Vectorize(grep, c("pattern", "x"), USE.NAMES = FALSE)(
 		paste0("(", pattern, ")$"),
 		x = string,
-		ignore.case = ignore.case,
 		perl = !is_fixed,
 		fixed = is_fixed,
 		invert = negate

@@ -22,16 +22,14 @@
 #' @return An integer vector.
 #' @export
 str_count <- function(string, pattern = "") {
-	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
-	is_fixed <- !ignore.case && inherits(pattern, "fixed")
-
-	lengths(
-		gregexpr(
-			pattern,
-			text = string,
-			ignore.case = ignore.case,
-			perl = !is_fixed,
-			fixed = is_fixed
-		)
+	is_fixed <- inherits(pattern, "stringr_fixed")
+	mapply(
+		function(string, pattern) {
+			match <- unlist(
+				gregexpr(pattern, text = string, perl = !is_fixed, fixed = is_fixed)
+			)
+			length(match[match > 0])
+		},
+		string, pattern, SIMPLIFY = "vector", USE.NAMES = FALSE
 	)
 }
