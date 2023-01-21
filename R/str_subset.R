@@ -23,6 +23,7 @@
 #'
 #' @return A character vector.
 #' @export
+
 str_subset <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "stringr_fixed")
@@ -66,6 +67,7 @@ str_subset <- function(string, pattern, negate = FALSE) {
 #'
 #' @return An integer vector.
 #' @export
+
 str_which <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "stringr_fixed")

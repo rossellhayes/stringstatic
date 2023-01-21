@@ -38,6 +38,7 @@
 #'   or if `simplify = FALSE`, a character matrix with n columns and
 #'   the same number of rows as the length of `string`/`pattern`.
 #' @export
+
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) {
 		if (isTRUE(simplify)) {
@@ -109,6 +110,7 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 #' @return A character matrix with `n` columns and
 #'   the same number of rows as the length of `string`/`pattern`.
 #' @export
+
 str_split_fixed <- function(string, pattern, n) {
 	if (length(string) == 0 || length(pattern) == 0) {
 		if (is.infinite(n)) return(matrix(character(0), nrow = 0, ncol = 0))

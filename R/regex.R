@@ -19,6 +19,7 @@
 #'
 #' @return An integer vector.
 #' @export
+
 regex <- function(
 	pattern,
 	ignore_case = FALSE,
@@ -58,6 +59,7 @@ regex <- function(
 #'
 #' @return An integer vector.
 #' @export
+
 fixed <- function(pattern, ignore_case = FALSE) {
 	if (!isTRUE(ignore_case)) {
 		return(structure(

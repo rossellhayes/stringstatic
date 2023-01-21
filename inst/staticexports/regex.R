@@ -15,7 +15,8 @@
 #' @param dotall If `TRUE`, `.` will also match line terminators.
 #'
 #' @return An integer vector.
-#' @noRd
+#' @export
+
 regex <- function(
 	pattern,
 	ignore_case = FALSE,
@@ -54,7 +55,8 @@ regex <- function(
 #' @param ignore_case Should case differences be ignored in the match?
 #'
 #' @return An integer vector.
-#' @noRd
+#' @export
+
 fixed <- function(pattern, ignore_case = FALSE) {
 	if (!isTRUE(ignore_case)) {
 		return(structure(

@@ -19,7 +19,8 @@
 #' @return A character matrix.
 #'   The first column is the complete match,
 #'   followed by one column for each capture group.
-#' @noRd
+#' @export
+
 str_match <- function(string, pattern) {
 	if (length(string) == 0 || length(pattern) == 0) return(matrix(character(0)))
 

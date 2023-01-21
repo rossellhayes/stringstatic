@@ -19,7 +19,8 @@
 #' @param negate If `TRUE`, return non-matching elements.
 #'
 #' @return A character vector.
-#' @noRd
+#' @export
+
 str_subset <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "stringr_fixed")
@@ -62,7 +63,8 @@ str_subset <- function(string, pattern, negate = FALSE) {
 #' @param negate If `TRUE`, return non-matching elements.
 #'
 #' @return An integer vector.
-#' @noRd
+#' @export
+
 str_which <- function(string, pattern, negate = FALSE) {
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "stringr_fixed")

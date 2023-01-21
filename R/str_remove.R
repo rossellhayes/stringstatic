@@ -21,6 +21,7 @@
 #'
 #' @return A character vector.
 #' @export
+
 str_remove <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
 	Vectorize(sub, c("pattern", "x"), USE.NAMES = FALSE)(
@@ -48,6 +49,7 @@ str_remove <- function(string, pattern) {
 #'
 #' @return A character vector.
 #' @export
+
 str_remove_all <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
 	Vectorize(gsub, c("pattern", "x"), USE.NAMES = FALSE)(

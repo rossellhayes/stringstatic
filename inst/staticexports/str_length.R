@@ -8,7 +8,8 @@
 #'   Either a character vector, or something coercible to one.
 #'
 #' @return A numeric vector the same length as string.
-#' @noRd
+#' @export
+
 str_length <- function(string) {
 	nchar(as.character(string), type = "chars", keepNA = TRUE)
 }
@@ -24,7 +25,8 @@ str_length <- function(string) {
 #'   Either a character vector, or something coercible to one.
 #'
 #' @return A numeric vector the same length as string.
-#' @noRd
+#' @export
+
 str_width <- function(string) {
 	nchar(as.character(string), type = "width", keepNA = TRUE)
 }

@@ -21,6 +21,7 @@
 #'
 #' @return An integer vector.
 #' @export
+
 str_count <- function(string, pattern = "") {
 	is_fixed <- inherits(pattern, "stringr_fixed")
 	mapply(

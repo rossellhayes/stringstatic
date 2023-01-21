@@ -19,7 +19,8 @@
 #' @return A character matrix.
 #'   The first column is the complete match,
 #'   followed by one column for each capture group.
-#' @noRd
+#' @export
+
 str_extract <- function(string, pattern) {
 	if (length(string) == 0 || length(pattern) == 0) return(character(0))
 
@@ -66,7 +67,8 @@ str_extract <- function(string, pattern) {
 #'
 #' @return A list of character vectors if `simplify = FALSE`,
 #'   or a character matrix if `simplify = TRUE`.
-#' @noRd
+#' @export
+
 str_extract_all <- function(string, pattern, simplify = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(list())
 

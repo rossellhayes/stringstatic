@@ -19,7 +19,8 @@
 #' @param negate If `TRUE`, return non-matching elements.
 #'
 #' @return A logical vector.
-#' @noRd
+#' @export
+
 str_detect <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 
@@ -57,7 +58,8 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #' @param negate If `TRUE`, return non-matching elements.
 #'
 #' @return A logical vector.
-#' @noRd
+#' @export
+
 str_starts <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 
@@ -97,7 +99,8 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #' @param negate If `TRUE`, return non-matching elements.
 #'
 #' @return A logical vector.
-#' @noRd
+#' @export
+
 str_ends <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 

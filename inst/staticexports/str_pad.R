@@ -20,7 +20,8 @@
 #'   see [str_width()]/[str_length()] for the difference.
 #'
 #' @return A character vector.
-#' @noRd
+#' @export
+
 str_pad <- function(
 	string, width, side = c("left", "right", "both"), pad = " ", use_width = TRUE
 ) {

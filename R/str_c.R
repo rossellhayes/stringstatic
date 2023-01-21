@@ -25,6 +25,7 @@
 #'   with length equal to the longest input string.
 #'   If collapse is non-`NULL`, a character vector of length 1.
 #' @export
+
 str_c <- function(..., sep = "", collapse = NULL) {
 	stopifnot(
 		"`sep` must be a single string, not a character vector." = length(sep) == 1,

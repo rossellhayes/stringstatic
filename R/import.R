@@ -15,7 +15,6 @@ import <- function() {
 			)
 
 			body <- readLines(r_file)
-			body <- gsub("#' @noRd", "#' @export", body)
 			body <- c(header, body)
 
 			writeLines(body, r_file)

@@ -17,7 +17,8 @@
 #'   This is fast, but approximate.
 #'
 #' @return A character vector.
-#' @noRd
+#' @export
+
 str_remove <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
 	Vectorize(sub, c("pattern", "x"), USE.NAMES = FALSE)(
@@ -44,7 +45,8 @@ str_remove <- function(string, pattern) {
 #'   This is fast, but approximate.
 #'
 #' @return A character vector.
-#' @noRd
+#' @export
+
 str_remove_all <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
 	Vectorize(gsub, c("pattern", "x"), USE.NAMES = FALSE)(

@@ -23,6 +23,7 @@
 #'
 #' @return A logical vector.
 #' @export
+
 str_detect <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 
@@ -61,6 +62,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #'
 #' @return A logical vector.
 #' @export
+
 str_starts <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 
@@ -101,6 +103,7 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #'
 #' @return A logical vector.
 #' @export
+
 str_ends <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
 

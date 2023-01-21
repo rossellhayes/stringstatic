@@ -29,7 +29,8 @@
 #'   Using a function for `replacement` is not yet supported.
 #'
 #' @return A character vector.
-#' @noRd
+#' @export
+
 str_replace <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
 	Vectorize(sub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
@@ -69,7 +70,8 @@ str_replace <- function(string, pattern, replacement) {
 #'   Using a function for `replacement` is not yet supported.
 #'
 #' @return A character vector.
-#' @noRd
+#' @export
+
 str_replace_all <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
 
@@ -100,7 +102,8 @@ str_replace_all <- function(string, pattern, replacement) {
 #' @param replacement A single string.
 #'
 #' @return A character vector.
-#' @noRd
+#' @export
+
 str_replace_na <- function(string, replacement = "NA") {
 	string[is.na(string)] <- replacement
 	string

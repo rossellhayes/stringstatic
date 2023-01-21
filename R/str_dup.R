@@ -12,6 +12,7 @@
 #'
 #' @return A character vector.
 #' @export
+
 str_dup <- function(string, times) {
 	strrep(string, times)
 }

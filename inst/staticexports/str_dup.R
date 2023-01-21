@@ -8,7 +8,8 @@
 #' @param times Number of times to duplicate each string.
 #'
 #' @return A character vector.
-#' @noRd
+#' @export
+
 str_dup <- function(string, times) {
 	strrep(string, times)
 }
