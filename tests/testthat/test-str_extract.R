@@ -1,3 +1,8 @@
+test_that("output is always character", {
+	expect_equal(str_extract(character(0), 0), character(0))
+	expect_equal(str_extract_all(character(0), 0), list())
+})
+
 # These tests are adapted from tests in the stringr package
 # https://github.com/tidyverse/stringr
 #
