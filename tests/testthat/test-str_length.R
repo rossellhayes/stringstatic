@@ -1,3 +1,8 @@
+test_that("output is always integer", {
+	expect_equal(str_length(character(0)), integer(0))
+	expect_equal(str_width(character(0)), integer(0))
+})
+
 # These tests are adapted from tests in the stringr package
 # https://github.com/tidyverse/stringr
 #

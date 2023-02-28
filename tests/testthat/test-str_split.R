@@ -1,3 +1,14 @@
+test_that("output is always a list", {
+	expect_equal(str_split(character(0), character(0)), list())
+})
+
+test_that("output is always a character matrix", {
+	expect_equal(
+		str_split_fixed(character(0), character(0), 1),
+		matrix(character(0))
+	)
+})
+
 # These tests are adapted from tests in the stringr package
 # https://github.com/tidyverse/stringr
 #

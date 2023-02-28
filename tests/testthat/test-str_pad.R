@@ -1,3 +1,7 @@
+test_that("output is always character", {
+	expect_equal(str_pad(character(0), 0), character(0))
+})
+
 # These tests are adapted from tests in the stringr package
 # https://github.com/tidyverse/stringr
 #

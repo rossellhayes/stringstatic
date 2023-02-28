@@ -1,3 +1,18 @@
+test_that("output is always character", {
+	expect_equal(
+		str_replace(character(0), character(0), character(0)),
+		character(0)
+	)
+	expect_equal(
+		str_replace_all(character(0), character(0), character(0)),
+		character(0)
+	)
+	expect_equal(
+		str_replace_na(character(0), character(0)),
+		character(0)
+	)
+})
+
 # These tests are adapted from tests in the stringr package
 # https://github.com/tidyverse/stringr
 #
