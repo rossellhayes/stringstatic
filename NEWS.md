@@ -10,6 +10,7 @@
 * `str_replace_na()`
 * `str_split()` and `str_split_fixed()`
 * `str_starts()` and `str_ends()`
+* `str_trim()` and `str_squish()`
 
 ## New arguments
 * `str_detect()`, `str_subset()` and `str_which()` gain the `negate` argument.
