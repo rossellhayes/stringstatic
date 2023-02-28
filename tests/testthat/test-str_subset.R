@@ -1,9 +1,9 @@
 test_that("output is always character", {
-	expect_equal(str_subset(character(0), ""), character(0))
+	expect_equal(str_subset(character(0), character(0)), character(0))
 })
 
 test_that("output is always integer", {
-	expect_equal(str_which(character(0), ""), integer(0))
+	expect_equal(str_which(character(0), character(0)), integer(0))
 })
 
 # These tests are adapted from tests in the stringr package

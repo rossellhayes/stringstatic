@@ -1,7 +1,7 @@
 test_that("output is always logical", {
-	expect_equal(str_detect(character(0), ""), logical(0))
-	expect_equal(str_starts(character(0), ""), logical(0))
-	expect_equal(str_ends(character(0), ""), logical(0))
+	expect_equal(str_detect(character(0), character(0)), logical(0))
+	expect_equal(str_starts(character(0), character(0)), logical(0))
+	expect_equal(str_ends(character(0), character(0)), logical(0))
 })
 
 # These tests are adapted from tests in the stringr package
