@@ -1,5 +1,9 @@
-test_that("output is always integer", {
+test_that("zero-length input", {
 	expect_equal(str_count(character(0), character(0)), integer(0))
+})
+
+test_that("mixed zero- and non-zero-length input", {
+	expect_equal(str_count(character(0), ""), integer(0))
 })
 
 # These tests are adapted from tests in the stringr package

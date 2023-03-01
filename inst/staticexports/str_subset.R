@@ -2,6 +2,8 @@
 # ======================================================================
 
 str_subset <- function(string, pattern, negate = FALSE) {
+	if (length(string) == 0 || length(pattern) == 0) return(character(0))
+
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "stringr_fixed")
 
@@ -23,6 +25,8 @@ str_subset <- function(string, pattern, negate = FALSE) {
 }
 
 str_which <- function(string, pattern, negate = FALSE) {
+	if (length(string) == 0 || length(pattern) == 0) return(integer(0))
+
 	ignore.case <- isTRUE(attr(pattern, "options")$case_insensitive)
 	is_fixed <- !ignore.case && inherits(pattern, "stringr_fixed")
 

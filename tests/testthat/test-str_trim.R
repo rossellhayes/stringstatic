@@ -1,4 +1,4 @@
-test_that("output is always character", {
+test_that("zero-length input", {
 	expect_equal(str_trim(character(0)), character(0))
 	expect_equal(str_squish(character(0)), character(0))
 })

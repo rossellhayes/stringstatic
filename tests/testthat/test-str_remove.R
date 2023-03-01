@@ -1,6 +1,11 @@
-test_that("output is always character", {
+test_that("zero-length input", {
 	expect_equal(str_remove(character(0), character(0)), character(0))
 	expect_equal(str_remove_all(character(0), character(0)), character(0))
+})
+
+test_that("mixed zero- and non-zero-length input", {
+	expect_equal(str_remove(character(0), ""), character(0))
+	expect_equal(str_remove_all(character(0), ""), character(0))
 })
 
 # These tests are adapted from tests in the stringr package

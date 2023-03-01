@@ -1,10 +1,15 @@
-test_that("output is always a list", {
+test_that("zero-length input", {
 	expect_equal(str_split(character(0), character(0)), list())
-})
-
-test_that("output is always a character matrix", {
 	expect_equal(
 		str_split_fixed(character(0), character(0), 1),
+		matrix(character(0))
+	)
+})
+
+test_that("mixed zero- and non-zero-length input", {
+	expect_equal(str_split(character(0), ""), list())
+	expect_equal(
+		str_split_fixed(character(0), "", 1),
 		matrix(character(0))
 	)
 })
