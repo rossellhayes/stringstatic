@@ -1,6 +1,3 @@
-# `R/str_replace.R` is imported from `inst/staticexports/str_replace.R`. 
-# Please edit that file instead.
-
 # TODO: Add support for function `replacement`
 
 #' Replace matched patterns in a string
@@ -33,6 +30,7 @@
 #'
 #' @return A character vector.
 #' @export
+#' @staticexport
 
 str_replace <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
@@ -78,6 +76,7 @@ str_replace <- function(string, pattern, replacement) {
 #'
 #' @return A character vector.
 #' @export
+#' @staticexport
 
 str_replace_all <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
@@ -112,6 +111,7 @@ str_replace_all <- function(string, pattern, replacement) {
 #'
 #' @return A character vector.
 #' @export
+#' @staticexport
 
 str_replace_na <- function(string, replacement = "NA") {
 	string[is.na(string)] <- replacement

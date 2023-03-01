@@ -1,6 +1,3 @@
-# `R/str_match.R` is imported from `inst/staticexports/str_match.R`. 
-# Please edit that file instead.
-
 #' Extract matched groups from a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_match()`.
@@ -23,6 +20,7 @@
 #'   The first column is the complete match,
 #'   followed by one column for each capture group.
 #' @export
+#' @staticexport
 
 str_match <- function(string, pattern) {
 	if (length(string) == 0 || length(pattern) == 0) return(matrix(character(0)))

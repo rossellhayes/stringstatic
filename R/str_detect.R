@@ -1,6 +1,3 @@
-# `R/str_detect.R` is imported from `inst/staticexports/str_detect.R`. 
-# Please edit that file instead.
-
 #' Detect the presence or absence of a pattern in a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_detect()`.
@@ -23,6 +20,7 @@
 #'
 #' @return A logical vector.
 #' @export
+#' @staticexport
 
 str_detect <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
@@ -62,6 +60,7 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #'
 #' @return A logical vector.
 #' @export
+#' @staticexport
 
 str_starts <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))
@@ -103,6 +102,7 @@ str_starts <- function(string, pattern, negate = FALSE) {
 #'
 #' @return A logical vector.
 #' @export
+#' @staticexport
 
 str_ends <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(logical(0))

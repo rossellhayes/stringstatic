@@ -1,6 +1,3 @@
-# `R/str_pad.R` is imported from `inst/staticexports/str_pad.R`. 
-# Please edit that file instead.
-
 #' Duplicate and concatenate strings within a character vector
 #'
 #' Dependency-free drop-in alternative for `stringr::str_pad()`.
@@ -24,6 +21,7 @@
 #'
 #' @return A character vector.
 #' @export
+#' @staticexport
 
 str_pad <- function(
 	string, width, side = c("left", "right", "both"), pad = " ", use_width = TRUE

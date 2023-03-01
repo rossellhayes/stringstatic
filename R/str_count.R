@@ -1,6 +1,3 @@
-# `R/str_count.R` is imported from `inst/staticexports/str_count.R`. 
-# Please edit that file instead.
-
 #' Count the number of matches in a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_count()`.
@@ -21,6 +18,7 @@
 #'
 #' @return An integer vector.
 #' @export
+#' @staticexport
 
 str_count <- function(string, pattern = "") {
 	is_fixed <- inherits(pattern, "stringr_fixed")

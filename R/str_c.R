@@ -1,6 +1,3 @@
-# `R/str_c.R` is imported from `inst/staticexports/str_c.R`. 
-# Please edit that file instead.
-
 #' Join multiple strings into a single string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_c()`.
@@ -25,6 +22,7 @@
 #'   with length equal to the longest input string.
 #'   If collapse is non-`NULL`, a character vector of length 1.
 #' @export
+#' @staticexport
 
 str_c <- function(..., sep = "", collapse = NULL) {
 	stopifnot(

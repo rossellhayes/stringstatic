@@ -1,6 +1,3 @@
-# `R/str_remove.R` is imported from `inst/staticexports/str_remove.R`. 
-# Please edit that file instead.
-
 #' Remove matched patterns in a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_remove()`.
@@ -21,6 +18,7 @@
 #'
 #' @return A character vector.
 #' @export
+#' @staticexport
 
 str_remove <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
@@ -53,6 +51,7 @@ str_remove <- function(string, pattern) {
 #'
 #' @return A character vector.
 #' @export
+#' @staticexport
 
 str_remove_all <- function(string, pattern) {
 	is_fixed <- inherits(pattern, "stringr_fixed")

@@ -19,11 +19,13 @@ License: CC0 + file LICENSE
 URL: https://github.com/rossellhayes/stringstatic
 BugReports: https://github.com/rossellhayes/stringstatic/issues
 Suggests: 
+    roxygen2,
     staticimports (>= 0.0.0.9000),
     testthat (>= 3.0.0)
 Remotes: 
     wch/staticimports
 Config/testthat/edition: 3
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
+Roxygen: list(markdown = TRUE, roclets = c("namespace", "rd",
+    "stringstatic:::staticexport_roclet"))
 RoxygenNote: 7.2.3
