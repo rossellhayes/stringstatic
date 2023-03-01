@@ -1,6 +1,3 @@
-# `R/str_extract.R` is imported from `inst/staticexports/str_extract.R`. 
-# Please edit that file instead.
-
 #' Extract matching patterns from a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_extract()`.
@@ -23,6 +20,7 @@
 #'   The first column is the complete match,
 #'   followed by one column for each capture group.
 #' @export
+#' @staticexport
 
 str_extract <- function(string, pattern) {
 	if (length(string) == 0 || length(pattern) == 0) return(character(0))
@@ -71,6 +69,7 @@ str_extract <- function(string, pattern) {
 #' @return A list of character vectors if `simplify = FALSE`,
 #'   or a character matrix if `simplify = TRUE`.
 #' @export
+#' @staticexport
 
 str_extract_all <- function(string, pattern, simplify = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(list())

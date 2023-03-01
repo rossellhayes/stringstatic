@@ -1,6 +1,3 @@
-# `R/regex.R` is imported from `inst/staticexports/regex.R`. 
-# Please edit that file instead.
-
 #' Control regex matching behavior
 #'
 #' Dependency-free drop-in alternative for `stringr::regex()`.
@@ -19,6 +16,7 @@
 #'
 #' @return An integer vector.
 #' @export
+#' @staticexport
 
 regex <- function(
 	pattern,
@@ -59,6 +57,7 @@ regex <- function(
 #'
 #' @return An integer vector.
 #' @export
+#' @staticexport
 
 fixed <- function(pattern, ignore_case = FALSE) {
 	if (!isTRUE(ignore_case)) {

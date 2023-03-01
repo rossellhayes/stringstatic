@@ -1,6 +1,3 @@
-# `R/str_split.R` is imported from `inst/staticexports/str_split.R`. 
-# Please edit that file instead.
-
 #' Split up a string into pieces
 #'
 #' Dependency-free drop-in alternative for `stringr::str_split()`.
@@ -38,6 +35,7 @@
 #'   or if `simplify = FALSE`, a character matrix with n columns and
 #'   the same number of rows as the length of `string`/`pattern`.
 #' @export
+#' @staticexport
 
 str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) {
@@ -110,6 +108,7 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 #' @return A character matrix with `n` columns and
 #'   the same number of rows as the length of `string`/`pattern`.
 #' @export
+#' @staticexport
 
 str_split_fixed <- function(string, pattern, n) {
 	if (length(string) == 0 || length(pattern) == 0) {

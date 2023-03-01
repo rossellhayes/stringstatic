@@ -1,6 +1,3 @@
-# `R/str_trim.R` is imported from `inst/staticexports/str_trim.R`. 
-# Please edit that file instead.
-
 #' Remove whitespace
 #'
 #' Dependency-free drop-in alternative for `stringr::str_trim()`.
@@ -15,6 +12,7 @@
 #'
 #' @return A character vector the same length as `string`.
 #' @export
+#' @staticexport
 
 str_trim <- function(string, side = c("both", "left", "right")) {
 	side <- match.arg(side)
@@ -34,6 +32,7 @@ str_trim <- function(string, side = c("both", "left", "right")) {
 #'
 #' @return A character vector the same length as `string`.
 #' @export
+#' @staticexport
 
 str_squish <- function(string) {
 	string <- sub("^\\s+", "", string, perl = TRUE)

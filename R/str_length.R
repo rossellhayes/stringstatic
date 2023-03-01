@@ -1,6 +1,3 @@
-# `R/str_length.R` is imported from `inst/staticexports/str_length.R`. 
-# Please edit that file instead.
-
 #' Compute the length of a string
 #'
 #' Dependency-free drop-in alternative for `stringr::str_length()`.
@@ -12,6 +9,7 @@
 #'
 #' @return A numeric vector the same length as string.
 #' @export
+#' @staticexport
 
 str_length <- function(string) {
 	nchar(as.character(string), type = "chars", keepNA = TRUE)
@@ -29,6 +27,7 @@ str_length <- function(string) {
 #'
 #' @return A numeric vector the same length as string.
 #' @export
+#' @staticexport
 
 str_width <- function(string) {
 	nchar(as.character(string), type = "width", keepNA = TRUE)
