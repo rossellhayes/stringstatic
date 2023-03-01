@@ -15,7 +15,7 @@ roclet_process.roclet_staticexport <- function(x, blocks, env, base_path) {
 		results$fun <- append(results$fun, block$object$alias)
 
 		dest <- roxygen2::block_get_tag(block, "staticexport")$val
-		if (identical(dest, "")) dest <- fs::path_file(block$file)
+		if (identical(dest, "")) dest <- basename(block$file)
 		results$dest <- append(results$dest, dest)
 	}
 
@@ -24,26 +24,25 @@ roclet_process.roclet_staticexport <- function(x, blocks, env, base_path) {
 }
 
 roclet_output.roclet_staticexport <- function(x, results, base_path, ...) {
-	dest_dir <- fs::path(base_path, "inst/staticexports")
-	fs::dir_create(dest_dir)
+	dest_dir <- file.path(base_path, "inst", "staticexports")
+	if (!dir.exists(dest_dir)) dir.create(dest_dir, recursive = TRUE)
 
 	for (dest in unique(results$dest)) {
-		dest_file <- fs::path(dest_dir, fs::path_ext_set(dest, ext = "R"))
+		dest_file <- file.path(dest_dir, path_ext_set(dest, ext = "R"))
 
 		these_funs <- results$fun[results$dest == dest]
 
-		suppressMessages(
-			staticimports::import_objs(
-				these_funs,
-				source = fs::path(base_path, "R"),
-				outfile = dest_file
-			)
-		)
-
-		cli::cli_alert_success(
-			"Copied {.val {these_funs}} into {.path {dest_file}}."
+		staticimports::import_objs(
+			these_funs,
+			source = file.path(base_path, "R"),
+			outfile = dest_file
 		)
 	}
 
 	invisible(NULL)
+}
+
+path_ext_set <- function(path, ext) {
+	if (grepl(paste0("\\.", ext, "$"), path, ignore.case = TRUE)) return(path)
+	paste(path, ext, sep = ".")
 }
