@@ -60,23 +60,23 @@ in your project.
 
 ### Pros
 
--   `stringstatic` does not depend on `stringi`, which is a heavy
-    dependency that can increase install times if it is not already
-    installed.
--   `stringstatic` functions can be copied directly into your package,
-    meaning future breaking changes will not change functionality in
-    your package.
+- `stringstatic` does not depend on `stringi`, which is a heavy
+  dependency that can increase install times if it is not already
+  installed.
+- `stringstatic` functions can be copied directly into your package,
+  meaning future breaking changes will not change functionality in your
+  package.
 
 ### Cons
 
--   `stringi`, which powers `stringr`, provides better Unicode support
-    than R’s built-in regex engine. If you expect to work with non-ASCII
-    text, `stringr` may provide better results.
-    -   While `stringi` is a heavy dependency, users are likely to
-        already have it installed because it is included when installing
-        the `tidyverse`.
--   If `stringstatic` functions are copied directly into your package,
-    you will not automatically benefit from improvements or bug fixes.
+- `stringi`, which powers `stringr`, provides better Unicode support
+  than R’s built-in regex engine. If you expect to work with non-ASCII
+  text, `stringr` may provide better results.
+  - While `stringi` is a heavy dependency, users are likely to already
+    have it installed because it is included when installing the
+    `tidyverse`.
+- If `stringstatic` functions are copied directly into your package, you
+  will not automatically benefit from improvements or bug fixes.
 
 ## Code of Conduct
 
@@ -87,9 +87,7 @@ By contributing to this project, you agree to abide by its terms.
 
 ------------------------------------------------------------------------
 
-Hex sticker image adapted from
-<a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">guitar
-icons created by Freepik - Flaticon</a>.
+Hex sticker image by Flavia Rossell Hayes.
 
 Hex sticker font is [Source Sans by
 Adobe](https://github.com/adobe-fonts/source-sans).

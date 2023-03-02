@@ -80,7 +80,7 @@ Please note that the `stringstatic` project is released with a [Contributor Code
 
 ---
 
-Hex sticker image adapted from <a href="https://www.flaticon.com/free-icons/guitar" title="guitar icons">guitar icons created by Freepik - Flaticon</a>.
+Hex sticker image by Flavia Rossell Hayes.
 
 Hex sticker font is 
 [Source Sans by Adobe](https://github.com/adobe-fonts/source-sans).
