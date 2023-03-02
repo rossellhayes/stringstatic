@@ -33,14 +33,15 @@
 #' @staticexport
 
 str_replace <- function(string, pattern, replacement) {
+	if (length(string) == 0 || length(pattern) == 0 || length(replacement) == 0) {
+		return(character(0))
+	}
+
 	is_fixed <- inherits(pattern, "stringr_fixed")
 
-	string <- Vectorize(sub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
+	Vectorize(sub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
 		pattern, replacement, x = string, perl = !is_fixed, fixed = is_fixed
 	)
-
-	mode(string) <- "character"
-	string
 }
 
 #' Replace matched patterns in a string
@@ -94,12 +95,13 @@ str_replace_all <- function(string, pattern, replacement) {
 		return(string)
 	}
 
-	string <- Vectorize(gsub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
+	if (length(string) == 0 || length(pattern) == 0 || length(replacement) == 0) {
+		return(character(0))
+	}
+
+	Vectorize(gsub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
 		pattern, replacement, x = string, perl = !is_fixed, fixed = is_fixed
 	)
-
-	mode(string) <- "character"
-	string
 }
 
 #' Turn NA into "NA"

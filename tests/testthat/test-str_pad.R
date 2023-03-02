@@ -1,4 +1,4 @@
-test_that("output is always character", {
+test_that("zero-length input", {
 	expect_equal(str_pad(character(0), 0), character(0))
 })
 

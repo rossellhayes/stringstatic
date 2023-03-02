@@ -1,4 +1,4 @@
-test_that("output is always integer", {
+test_that("zero-length input", {
 	expect_equal(str_length(character(0)), integer(0))
 	expect_equal(str_width(character(0)), integer(0))
 })

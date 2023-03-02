@@ -2,9 +2,9 @@
 # ======================================================================
 
 str_count <- function(string, pattern = "") {
+	if (length(string) == 0 || length(pattern) == 0) return(integer(0))
 	is_fixed <- inherits(pattern, "stringr_fixed")
-
-	count <- mapply(
+	mapply(
 		function(string, pattern) {
 			match <- unlist(
 				gregexpr(pattern, text = string, perl = !is_fixed, fixed = is_fixed)
@@ -13,7 +13,4 @@ str_count <- function(string, pattern = "") {
 		},
 		string, pattern, SIMPLIFY = "vector", USE.NAMES = FALSE
 	)
-
-	mode(count) <- "integer"
-	count
 }
