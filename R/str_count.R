@@ -19,7 +19,6 @@
 #' @return An integer vector.
 #' @export
 #' @staticexport
-
 str_count <- function(string, pattern = "") {
 	if (length(string) == 0 || length(pattern) == 0) return(integer(0))
 	is_fixed <- inherits(pattern, "stringr_fixed")

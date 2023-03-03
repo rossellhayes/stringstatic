@@ -22,7 +22,6 @@
 #' @return A character vector.
 #' @export
 #' @staticexport
-
 str_pad <- function(
 	string, width, side = c("left", "right", "both"), pad = " ", use_width = TRUE
 ) {

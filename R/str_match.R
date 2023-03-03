@@ -21,7 +21,6 @@
 #'   followed by one column for each capture group.
 #' @export
 #' @staticexport
-
 str_match <- function(string, pattern) {
 	if (length(string) == 0 || length(pattern) == 0) return(matrix(character(0)))
 

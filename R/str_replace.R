@@ -31,7 +31,6 @@
 #' @return A character vector.
 #' @export
 #' @staticexport
-
 str_replace <- function(string, pattern, replacement) {
 	if (length(string) == 0 || length(pattern) == 0 || length(replacement) == 0) {
 		return(character(0))
@@ -78,7 +77,6 @@ str_replace <- function(string, pattern, replacement) {
 #' @return A character vector.
 #' @export
 #' @staticexport
-
 str_replace_all <- function(string, pattern, replacement) {
 	is_fixed <- inherits(pattern, "stringr_fixed")
 
@@ -114,7 +112,6 @@ str_replace_all <- function(string, pattern, replacement) {
 #' @return A character vector.
 #' @export
 #' @staticexport
-
 str_replace_na <- function(string, replacement = "NA") {
 	string[is.na(string)] <- replacement
 	string

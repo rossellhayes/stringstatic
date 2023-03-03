@@ -13,7 +13,6 @@
 #' @return A character vector the same length as `string`.
 #' @export
 #' @staticexport
-
 str_trim <- function(string, side = c("both", "left", "right")) {
 	side <- match.arg(side)
 	if (side != "right") string <- sub("^\\s+", "", string, perl = TRUE)
@@ -33,7 +32,6 @@ str_trim <- function(string, side = c("both", "left", "right")) {
 #' @return A character vector the same length as `string`.
 #' @export
 #' @staticexport
-
 str_squish <- function(string) {
 	string <- sub("^\\s+", "", string, perl = TRUE)
 	string <- sub("\\s+$", "", string, perl = TRUE)

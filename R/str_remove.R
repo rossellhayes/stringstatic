@@ -19,7 +19,6 @@
 #' @return A character vector.
 #' @export
 #' @staticexport
-
 str_remove <- function(string, pattern) {
 	if (length(string) == 0 || length(pattern) == 0) return(character(0))
 	is_fixed <- inherits(pattern, "stringr_fixed")
@@ -49,7 +48,6 @@ str_remove <- function(string, pattern) {
 #' @return A character vector.
 #' @export
 #' @staticexport
-
 str_remove_all <- function(string, pattern) {
 	if (length(string) == 0 || length(pattern) == 0) return(character(0))
 	is_fixed <- inherits(pattern, "stringr_fixed")

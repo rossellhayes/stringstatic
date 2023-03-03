@@ -10,7 +10,6 @@
 #' @return A numeric vector the same length as string.
 #' @export
 #' @staticexport
-
 str_length <- function(string) {
 	nchar(as.character(string), type = "chars", keepNA = TRUE)
 }
@@ -28,7 +27,6 @@ str_length <- function(string) {
 #' @return A numeric vector the same length as string.
 #' @export
 #' @staticexport
-
 str_width <- function(string) {
 	nchar(as.character(string), type = "width", keepNA = TRUE)
 }

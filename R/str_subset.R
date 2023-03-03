@@ -21,7 +21,6 @@
 #' @return A character vector.
 #' @export
 #' @staticexport
-
 str_subset <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(character(0))
 
@@ -68,7 +67,6 @@ str_subset <- function(string, pattern, negate = FALSE) {
 #' @return An integer vector.
 #' @export
 #' @staticexport
-
 str_which <- function(string, pattern, negate = FALSE) {
 	if (length(string) == 0 || length(pattern) == 0) return(integer(0))
 
