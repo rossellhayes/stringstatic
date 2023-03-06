@@ -1,4 +1,4 @@
-# stringstatic (development version)
+# stringstatic 0.1.0
 
 ## New functions
 * `regex()`
@@ -27,6 +27,9 @@
 ## Bug fixes
 * All `stringstatic` functions are now type consistent. Previously, functions may have returned different types for zero-length inputs than for non-zero-length inputs.
 * Fixed a bug where `fixed(ignore_case = TRUE)` would not actually ignore case.
+
+## Removals
+* `%||%` is no longer exported by `stringstatic`. It is available in `staticimports`.
 
 # stringstatic 0.0.2
 
