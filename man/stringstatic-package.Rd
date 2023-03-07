@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Provides a reimplementation of several functions from the 'stringr' package, with the same user interface. These functions have no external dependencies and can be copied directly into your package code using the 'staticimports' package.
+Provides drop-in replacements for functions from the 'stringr' package, with the same user interface. These functions have no external dependencies and can be copied directly into your package code using the 'staticimports' package.
 }
 \seealso{
 Useful links:

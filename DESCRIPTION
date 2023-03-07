@@ -11,7 +11,7 @@ Authors@R: c(
     person("RStudio", role = "cph",
            comment = "stringr package")
   )
-Description: Provides a reimplementation of several functions from the
+Description: Provides drop-in replacements for functions from the
     'stringr' package, with the same user interface. These functions have
     no external dependencies and can be copied directly into your package
     code using the 'staticimports' package.
