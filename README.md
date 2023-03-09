@@ -5,9 +5,16 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![](https://www.r-pkg.org/badges/version/stringstatic)](https://cran.r-project.org/package=stringstatic)
+[![r-universe status
+badge](https://rossellhayes.r-universe.dev/badges/stringstatic)](https://rossellhayes.r-universe.dev/ui#package:stringstatic)
+[![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License:
 CC0](https://img.shields.io/badge/license-CC0-brightgreen.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![R build
+status](https://github.com/rossellhayes/stringstatic/workflows/R-CMD-check/badge.svg)](https://github.com/rossellhayes/stringstatic/actions)
+[![](https://app.codecov.io/gh/rossellhayes/stringstatic/branch/main/graph/badge.svg)](https://app.codecov.io/gh/rossellhayes/stringstatic)
+[![Dependencies](https://tinyverse.netlify.com/badge/stringstatic)](https://cran.r-project.org/package=stringstatic)
 <!-- badges: end -->
 
 `stringstatic` provides a reimplementation of several functions from
