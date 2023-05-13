@@ -7,7 +7,7 @@
 
 [![](https://www.r-pkg.org/badges/version/stringstatic)](https://cran.r-project.org/package=stringstatic)
 [![r-universe status
-badge](https://rossellhayes.r-universe.dev/badges/stringstatic)](https://rossellhayes.r-universe.dev/ui#package:stringstatic)
+badge](https://rossellhayes.r-universe.dev/badges/stringstatic)](https://rossellhayes.r-universe.dev/stringstatic)
 [![](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![License:
 CC0](https://img.shields.io/badge/license-CC0-brightgreen.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
