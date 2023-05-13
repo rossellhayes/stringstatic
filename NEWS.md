@@ -1,4 +1,6 @@
-# stringstatic (development version)
+# stringstatic 0.1.1
+
+* `str_split()` and `str_split_fixed()` now return a result with a trailing empty string (`""`) when the end of `string` matches `pattern`. This matches the behavior of `stringr::str_split()` and differs from `base::strsplit()` (#16).
 
 # stringstatic 0.1.0
 

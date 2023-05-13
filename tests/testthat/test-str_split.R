@@ -14,6 +14,18 @@ test_that("mixed zero- and non-zero-length input", {
 	)
 })
 
+test_that("input starts and ends with a match", {
+	expect_equal(
+		str_split("-123-456-789-", "-"),
+		list(c("", "123", "456", "789", ""))
+	)
+
+	expect_equal(
+		str_split_fixed("-123-456-789-", "-", Inf),
+		matrix(c("", "123", "456", "789", ""), nrow = 1)
+	)
+})
+
 # These tests are adapted from tests in the stringr package
 # https://github.com/tidyverse/stringr
 #
