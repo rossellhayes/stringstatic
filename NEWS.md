@@ -1,4 +1,4 @@
-# stringstatic (development version)
+# stringstatic 0.1.1
 
 # stringstatic 0.1.0
 
