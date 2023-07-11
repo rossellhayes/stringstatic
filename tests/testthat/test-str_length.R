@@ -48,7 +48,7 @@ test_that("str_length of factor is length of level", {
 
 test_that("str_width returns display width", {
 	# Results for non-ASCII characters may be inaccurate in R < 4.0
-	skip_if(getRversion() < 4.0)
+	skip_if(getRversion() < "4.0.0")
 	x <- c("\u0308", "x", "\U0001f60a")
 	expect_equal(str_width(x), c(0, 1, 2))
 })
