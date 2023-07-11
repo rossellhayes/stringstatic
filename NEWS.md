@@ -1,5 +1,6 @@
 # stringstatic 0.1.2
 
+* Update staticexport of `str_split()` and `str_split()` fixed to match update in version 0.1.1.
 * Use character instead of numeric for R version in tests, to comply with updated CRAN policy.
 
 # stringstatic 0.1.1

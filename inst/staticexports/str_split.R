@@ -52,9 +52,23 @@ str_split <- function(string, pattern, n = Inf, simplify = FALSE) {
 	result <- Map(
 		function(string, pattern) {
 			if (is.na(string) || is.na(pattern)) return(NA_character_)
-			unlist(
-				strsplit(string, split = pattern, fixed = is_fixed, perl = !is_fixed)
+
+			split <- strsplit(
+				string,
+				split = pattern,
+				fixed = is_fixed,
+				perl = !is_fixed
 			)
+
+			split[lengths(split) == 0] <- ""
+			split <- unlist(split)
+
+			match <- gregexpr(pattern, string, perl = !is_fixed, fixed = is_fixed)[[1]]
+			match_ends <- match + attr(match, "match.length")
+			match_at_end_of_string <- any(match_ends > nchar(string))
+			if (match_at_end_of_string) return(c(split[match_at_end_of_string], ""))
+
+			split
 		},
 		string, pattern, USE.NAMES = FALSE
 	)
@@ -120,9 +134,23 @@ str_split_fixed <- function(string, pattern, n) {
 	result <- Map(
 		function(string, pattern) {
 			if (is.na(string) || is.na(pattern)) return(NA_character_)
-			unlist(
-				strsplit(string, split = pattern, fixed = is_fixed, perl = !is_fixed)
+
+			split <- strsplit(
+				string,
+				split = pattern,
+				fixed = is_fixed,
+				perl = !is_fixed
 			)
+
+			split[lengths(split) == 0] <- ""
+			split <- unlist(split)
+
+			match <- gregexpr(pattern, string, perl = !is_fixed, fixed = is_fixed)[[1]]
+			match_ends <- match + attr(match, "match.length")
+			match_at_end_of_string <- any(match_ends > nchar(string))
+			if (match_at_end_of_string) return(c(split[match_at_end_of_string], ""))
+
+			split
 		},
 		string, pattern, USE.NAMES = FALSE
 	)
